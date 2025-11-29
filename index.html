@@ -264,189 +264,78 @@
                 <!-- Tab Content Containers -->
                 <div id="gallery-content">
                     <!-- 
-                        Tab 1: Portraits (Populated with user images)
+                        Tab 1: Portraits (Now populated with images)
                     -->
                     <div id="tab-portraits" class="tab-content p-4 md:p-8 light-card rounded-xl">
-                        <!-- 
-                            Image Grid: Now uses lg:grid-cols-3 for large screens 
-                            (3 columns wide, perfect for a 1 + 1 + 1 and 1 + 2 layout)
-                        -->
-                        <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-3 gap-6">
+                        <!-- Image Grid: Responsive 2-column, 3-column, then 4-column on large screens -->
+                        <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
                             
-                            <!-- Image 1: potrait-0.jpg (1 col) -->
-                            <div class="relative overflow-hidden rounded-xl shadow-lg hover:shadow-2xl transition duration-300 transform hover:scale-[1.03] cursor-pointer aspect-square" onclick="openLightbox('potrait-0.jpg', 'Portrait: Soft natural light')">
+                            <!-- Image 1: potrait-0.jpg -->
+                            <div class="relative overflow-hidden rounded-xl shadow-lg hover:shadow-2xl transition duration-300 transform hover:scale-[1.03] cursor-pointer" onclick="openLightbox('potrait-0.jpg', 'Portrait: Soft natural light')">
                                 <img src="potrait-0.jpg" 
                                      onerror="this.src='https://placehold.co/600x600/f3e5d8/70421c?text=Image+0';" 
                                      alt="Portrait 0" 
-                                     class="w-full h-full object-cover">
+                                     class="w-full h-full object-cover aspect-square">
                             </div>
 
-                            <!-- Image 2: potrait-1.jpg (1 col) -->
-                            <div class="relative overflow-hidden rounded-xl shadow-lg hover:shadow-2xl transition duration-300 transform hover:scale-[1.03] cursor-pointer aspect-square" onclick="openLightbox('potrait-1.jpg', 'Portrait: High contrast outdoor shot')">
+                            <!-- Image 2: potrait-1.jpg -->
+                            <div class="relative overflow-hidden rounded-xl shadow-lg hover:shadow-2xl transition duration-300 transform hover:scale-[1.03] cursor-pointer" onclick="openLightbox('potrait-1.jpg', 'Portrait: High contrast outdoor shot')">
                                 <img src="potrait-1.jpg" 
                                      onerror="this.src='https://placehold.co/600x600/f3e5d8/70421c?text=Image+1';" 
                                      alt="Portrait 1" 
-                                     class="w-full h-full object-cover">
+                                     class="w-full h-full object-cover aspect-square">
                             </div>
 
-                            <!-- Image 3: potrait-2.jpg (1 col) - Ends Row 1 on Lg screens -->
-                            <div class="relative overflow-hidden rounded-xl shadow-lg hover:shadow-2xl transition duration-300 transform hover:scale-[1.03] cursor-pointer aspect-square" onclick="openLightbox('potrait-2.jpg', 'Portrait: Studio style headshot')">
+                            <!-- Image 3: potrait-2.jpg -->
+                            <div class="relative overflow-hidden rounded-xl shadow-lg hover:shadow-2xl transition duration-300 transform hover:scale-[1.03] cursor-pointer" onclick="openLightbox('potrait-2.jpg', 'Portrait: Studio style headshot')">
                                 <img src="potrait-2.jpg" 
                                      onerror="this.src='https://placehold.co/600x600/f3e5d8/70421c?text=Image+2';" 
                                      alt="Portrait 2" 
-                                     class="w-full h-full object-cover">
+                                     class="w-full h-full object-cover aspect-square">
                             </div>
 
-                            <!-- Image 4: potrait-3.jpg (1 col) - Starts Row 2 -->
-                            <div class="relative overflow-hidden rounded-xl shadow-lg hover:shadow-2xl transition duration-300 transform hover:scale-[1.03] cursor-pointer aspect-square" onclick="openLightbox('potrait-3.jpg', 'Portrait: Candid shot with depth of field')">
+                            <!-- Image 4: potrait-3.jpg -->
+                            <div class="relative overflow-hidden rounded-xl shadow-lg hover:shadow-2xl transition duration-300 transform hover:scale-[1.03] cursor-pointer" onclick="openLightbox('potrait-3.jpg', 'Portrait: Candid shot with depth of field')">
                                 <img src="potrait-3.jpg" 
                                      onerror="this.src='https://placehold.co/600x600/f3e5d8/70421c?text=Image+3';" 
                                      alt="Portrait 3" 
-                                     class="w-full h-full object-cover">
+                                     class="w-full h-full object-cover aspect-square">
                             </div>
 
-                            <!-- 
-                                Image 5: potrait-4.jpg - Now spans 2 columns (col-span-2) 
-                                and uses aspect-square to match the height of potrait-3.jpg.
-                            -->
-                            <div class="col-span-2 lg:col-span-2 relative overflow-hidden rounded-xl shadow-lg hover:shadow-2xl transition duration-300 transform hover:scale-[1.01] cursor-pointer aspect-square" 
-                                 onclick="openLightbox('potrait-4.jpg', 'Portrait: Environmental background - Stretched View')">
+                            <!-- Image 5: potrait-4.jpg -->
+                            <div class="relative overflow-hidden rounded-xl shadow-lg hover:shadow-2xl transition duration-300 transform hover:scale-[1.03] cursor-pointer" onclick="openLightbox('potrait-4.jpg', 'Portrait: Environmental background')">
                                 <img src="potrait-4.jpg" 
-                                     onerror="this.src='https://placehold.co/1200x600/f3e5d8/70421c?text=Portrait+4+-+STRETCHED+VIEW+2:1';" 
+                                     onerror="this.src='https://placehold.co/600x600/f3e5d8/70421c?text=Image+4';" 
                                      alt="Portrait 4" 
-                                     class="w-full h-full object-cover">
+                                     class="w-full h-full object-cover aspect-square">
                             </div>
                             
                         </div>
                     </div>
 
-                    <!-- 
-                        Tab 2-6: Placeholder Content Grid (Using generic placeholders for consistent height)
-                    -->
-                    
-                    <div id="tab-unnamed-1" class="tab-content hidden p-4 md:p-8 light-card rounded-xl">
-                        <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
-                            <!-- Placeholder 1 -->
-                            <div class="relative overflow-hidden rounded-xl shadow-lg bg-gray-100 flex items-center justify-center aspect-square border-2 border-dashed border-gray-300 text-gray-500 font-medium text-center">
-                                <img src="https://placehold.co/600x600/f3e5d8/70421c?text=Unnamed+1+A" alt="Placeholder" class="w-full h-full object-cover aspect-square opacity-70">
-                                <span class="absolute text-sm text-[#382200] font-bold">Awaiting Images</span>
-                            </div>
-                            <!-- Placeholder 2 -->
-                            <div class="relative overflow-hidden rounded-xl shadow-lg bg-gray-100 flex items-center justify-center aspect-square border-2 border-dashed border-gray-300 text-gray-500 font-medium text-center">
-                                <img src="https://placehold.co/600x600/f0d4ba/5a3617?text=Unnamed+1+B" alt="Placeholder" class="w-full h-full object-cover aspect-square opacity-70">
-                                <span class="absolute text-sm text-[#382200] font-bold">Awaiting Images</span>
-                            </div>
-                            <!-- Placeholder 3 -->
-                            <div class="relative overflow-hidden rounded-xl shadow-lg bg-gray-100 flex items-center justify-center aspect-square border-2 border-dashed border-gray-300 text-gray-500 font-medium text-center">
-                                <img src="https://placehold.co/600x600/e9c19b/70421c?text=Unnamed+1+C" alt="Placeholder" class="w-full h-full object-cover aspect-square opacity-70">
-                                <span class="absolute text-sm text-[#382200] font-bold">Awaiting Images</span>
-                            </div>
-                            <!-- Placeholder 4 -->
-                            <div class="relative overflow-hidden rounded-xl shadow-lg bg-gray-100 flex items-center justify-center aspect-square border-2 border-dashed border-gray-300 text-gray-500 font-medium text-center">
-                                <img src="https://placehold.co/600x600/f3e5d8/382200?text=Unnamed+1+D" alt="Placeholder" class="w-full h-full object-cover aspect-square opacity-70">
-                                <span class="absolute text-sm text-[#382200] font-bold">Awaiting Images</span>
-                            </div>
-                        </div>
+                    <!-- Tab 2: Unnamed 1 -->
+                    <div id="tab-unnamed-1" class="tab-content hidden flex justify-center items-center p-12 light-card rounded-xl min-h-[300px]">
+                        <p class="text-2xl text-gray-500 font-semibold">Content Coming Soon...</p>
                     </div>
                     
-                    <div id="tab-unnamed-2" class="tab-content hidden p-4 md:p-8 light-card rounded-xl">
-                        <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
-                            <!-- Placeholder 1 -->
-                            <div class="relative overflow-hidden rounded-xl shadow-lg bg-gray-100 flex items-center justify-center aspect-square border-2 border-dashed border-gray-300 text-gray-500 font-medium text-center">
-                                <img src="https://placehold.co/600x600/f0d4ba/70421c?text=Unnamed+2+A" alt="Placeholder" class="w-full h-full object-cover aspect-square opacity-70">
-                                <span class="absolute text-sm text-[#382200] font-bold">Awaiting Images</span>
-                            </div>
-                            <!-- Placeholder 2 -->
-                            <div class="relative overflow-hidden rounded-xl shadow-lg bg-gray-100 flex items-center justify-center aspect-square border-2 border-dashed border-gray-300 text-gray-500 font-medium text-center">
-                                <img src="https://placehold.co/600x600/e9c19b/5a3617?text=Unnamed+2+B" alt="Placeholder" class="w-full h-full object-cover aspect-square opacity-70">
-                                <span class="absolute text-sm text-[#382200] font-bold">Awaiting Images</span>
-                            </div>
-                            <!-- Placeholder 3 -->
-                            <div class="relative overflow-hidden rounded-xl shadow-lg bg-gray-100 flex items-center justify-center aspect-square border-2 border-dashed border-gray-300 text-gray-500 font-medium text-center">
-                                <img src="https://placehold.co/600x600/f3e5d8/70421c?text=Unnamed+2+C" alt="Placeholder" class="w-full h-full object-cover aspect-square opacity-70">
-                                <span class="absolute text-sm text-[#382200] font-bold">Awaiting Images</span>
-                            </div>
-                            <!-- Placeholder 4 -->
-                            <div class="relative overflow-hidden rounded-xl shadow-lg bg-gray-100 flex items-center justify-center aspect-square border-2 border-dashed border-gray-300 text-gray-500 font-medium text-center">
-                                <img src="https://placehold.co/600x600/f0d4ba/382200?text=Unnamed+2+D" alt="Placeholder" class="w-full h-full object-cover aspect-square opacity-70">
-                                <span class="absolute text-sm text-[#382200] font-bold">Awaiting Images</span>
-                            </div>
-                        </div>
+                    <!-- Tab 3: Unnamed 2 -->
+                    <div id="tab-unnamed-2" class="tab-content hidden flex justify-center items-center p-12 light-card rounded-xl min-h-[300px]">
+                        <p class="text-2xl text-gray-500 font-semibold">Content Coming Soon...</p>
                     </div>
 
-                    <div id="tab-unnamed-3" class="tab-content hidden p-4 md:p-8 light-card rounded-xl">
-                        <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
-                            <!-- Placeholder 1 -->
-                            <div class="relative overflow-hidden rounded-xl shadow-lg bg-gray-100 flex items-center justify-center aspect-square border-2 border-dashed border-gray-300 text-gray-500 font-medium text-center">
-                                <img src="https://placehold.co/600x600/e9c19b/70421c?text=Unnamed+3+A" alt="Placeholder" class="w-full h-full object-cover aspect-square opacity-70">
-                                <span class="absolute text-sm text-[#382200] font-bold">Awaiting Images</span>
-                            </div>
-                            <!-- Placeholder 2 -->
-                            <div class="relative overflow-hidden rounded-xl shadow-lg bg-gray-100 flex items-center justify-center aspect-square border-2 border-dashed border-gray-300 text-gray-500 font-medium text-center">
-                                <img src="https://placehold.co/600x600/f3e5d8/5a3617?text=Unnamed+3+B" alt="Placeholder" class="w-full h-full object-cover aspect-square opacity-70">
-                                <span class="absolute text-sm text-[#382200] font-bold">Awaiting Images</span>
-                            </div>
-                            <!-- Placeholder 3 -->
-                            <div class="relative overflow-hidden rounded-xl shadow-lg bg-gray-100 flex items-center justify-center aspect-square border-2 border-dashed border-gray-300 text-gray-500 font-medium text-center">
-                                <img src="https://placehold.co/600x600/f0d4ba/70421c?text=Unnamed+3+C" alt="Placeholder" class="w-full h-full object-cover aspect-square opacity-70">
-                                <span class="absolute text-sm text-[#382200] font-bold">Awaiting Images</span>
-                            </div>
-                            <!-- Placeholder 4 -->
-                            <div class="relative overflow-hidden rounded-xl shadow-lg bg-gray-100 flex items-center justify-center aspect-square border-2 border-dashed border-gray-300 text-gray-500 font-medium text-center">
-                                <img src="https://placehold.co/600x600/e9c19b/382200?text=Unnamed+3+D" alt="Placeholder" class="w-full h-full object-cover aspect-square opacity-70">
-                                <span class="absolute text-sm text-[#382200] font-bold">Awaiting Images</span>
-                            </div>
-                        </div>
+                    <!-- Tab 4: Unnamed 3 -->
+                    <div id="tab-unnamed-3" class="tab-content hidden flex justify-center items-center p-12 light-card rounded-xl min-h-[300px]">
+                        <p class="text-2xl text-gray-500 font-semibold">Content Coming Soon...</p>
                     </div>
 
-                    <div id="tab-unnamed-4" class="tab-content hidden p-4 md:p-8 light-card rounded-xl">
-                        <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
-                            <!-- Placeholder 1 -->
-                            <div class="relative overflow-hidden rounded-xl shadow-lg bg-gray-100 flex items-center justify-center aspect-square border-2 border-dashed border-gray-300 text-gray-500 font-medium text-center">
-                                <img src="https://placehold.co/600x600/f3e5d8/70421c?text=Unnamed+4+A" alt="Placeholder" class="w-full h-full object-cover aspect-square opacity-70">
-                                <span class="absolute text-sm text-[#382200] font-bold">Awaiting Images</span>
-                            </div>
-                            <!-- Placeholder 2 -->
-                            <div class="relative overflow-hidden rounded-xl shadow-lg bg-gray-100 flex items-center justify-center aspect-square border-2 border-dashed border-gray-300 text-gray-500 font-medium text-center">
-                                <img src="https://placehold.co/600x600/f0d4ba/5a3617?text=Unnamed+4+B" alt="Placeholder" class="w-full h-full object-cover aspect-square opacity-70">
-                                <span class="absolute text-sm text-[#382200] font-bold">Awaiting Images</span>
-                            </div>
-                            <!-- Placeholder 3 -->
-                            <div class="relative overflow-hidden rounded-xl shadow-lg bg-gray-100 flex items-center justify-center aspect-square border-2 border-dashed border-gray-300 text-gray-500 font-medium text-center">
-                                <img src="https://placehold.co/600x600/e9c19b/70421c?text=Unnamed+4+C" alt="Placeholder" class="w-full h-full object-cover aspect-square opacity-70">
-                                <span class="absolute text-sm text-[#382200] font-bold">Awaiting Images</span>
-                            </div>
-                            <!-- Placeholder 4 -->
-                            <div class="relative overflow-hidden rounded-xl shadow-lg bg-gray-100 flex items-center justify-center aspect-square border-2 border-dashed border-gray-300 text-gray-500 font-medium text-center">
-                                <img src="https://placehold.co/600x600/f3e5d8/382200?text=Unnamed+4+D" alt="Placeholder" class="w-full h-full object-cover aspect-square opacity-70">
-                                <span class="absolute text-sm text-[#382200] font-bold">Awaiting Images</span>
-                            </div>
-                        </div>
+                    <!-- Tab 5: Unnamed 4 -->
+                    <div id="tab-unnamed-4" class="tab-content hidden flex justify-center items-center p-12 light-card rounded-xl min-h-[300px]">
+                        <p class="text-2xl text-gray-500 font-semibold">Content Coming Soon...</p>
                     </div>
                     
-                    <div id="tab-unnamed-5" class="tab-content hidden p-4 md:p-8 light-card rounded-xl">
-                        <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
-                            <!-- Placeholder 1 -->
-                            <div class="relative overflow-hidden rounded-xl shadow-lg bg-gray-100 flex items-center justify-center aspect-square border-2 border-dashed border-gray-300 text-gray-500 font-medium text-center">
-                                <img src="https://placehold.co/600x600/f0d4ba/70421c?text=Unnamed+5+A" alt="Placeholder" class="w-full h-full object-cover aspect-square opacity-70">
-                                <span class="absolute text-sm text-[#382200] font-bold">Awaiting Images</span>
-                            </div>
-                            <!-- Placeholder 2 -->
-                            <div class="relative overflow-hidden rounded-xl shadow-lg bg-gray-100 flex items-center justify-center aspect-square border-2 border-dashed border-gray-300 text-gray-500 font-medium text-center">
-                                <img src="https://placehold.co/600x600/e9c19b/5a3617?text=Unnamed+5+B" alt="Placeholder" class="w-full h-full object-cover aspect-square opacity-70">
-                                <span class="absolute text-sm text-[#382200] font-bold">Awaiting Images</span>
-                            </div>
-                            <!-- Placeholder 3 -->
-                            <div class="relative overflow-hidden rounded-xl shadow-lg bg-gray-100 flex items-center justify-center aspect-square border-2 border-dashed border-gray-300 text-gray-500 font-medium text-center">
-                                <img src="https://placehold.co/600x600/f3e5d8/70421c?text=Unnamed+5+C" alt="Placeholder" class="w-full h-full object-cover aspect-square opacity-70">
-                                <span class="absolute text-sm text-[#382200] font-bold">Awaiting Images</span>
-                            </div>
-                            <!-- Placeholder 4 -->
-                            <div class="relative overflow-hidden rounded-xl shadow-lg bg-gray-100 flex items-center justify-center aspect-square border-2 border-dashed border-gray-300 text-gray-500 font-medium text-center">
-                                <img src="https://placehold.co/600x600/f0d4ba/382200?text=Unnamed+5+D" alt="Placeholder" class="w-full h-full object-cover aspect-square opacity-70">
-                                <span class="absolute text-sm text-[#382200] font-bold">Awaiting Images</span>
-                            </div>
-                        </div>
+                    <!-- Tab 6: Unnamed 5 -->
+                    <div id="tab-unnamed-5" class="tab-content hidden flex justify-center items-center p-12 light-card rounded-xl min-h-[300px]">
+                        <p class="text-2xl text-gray-500 font-semibold">Content Coming Soon...</p>
                     </div>
 
                 </div>

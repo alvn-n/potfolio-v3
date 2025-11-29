@@ -243,34 +243,32 @@
             </div>
         </section>
 
-        <!-- Gallery Section (Tabbed Interface) -->
+        <!-- Gallery Section (Re-introducing tabs) -->
         <section id="gallery" class="py-16 md:py-24 border-t border-b border-gray-200 animate-fade-in" style="animation-delay: 0.9s;">
             <!-- Layout size changed from max-w-7xl to max-w-full -->
             <div class="max-w-full mx-auto px-4 sm:px-6 lg:px-8 xl:px-12">
                 <h3 class="text-4xl font-extrabold text-gray-900 text-center mb-12">
-                    My Work Gallery
+                    My Work
                 </h3>
 
-                <!-- Tab Navigation -->
-                <div class="flex flex-wrap justify-center mb-10 light-card p-2 rounded-xl shadow-md space-x-2 md:space-x-4 animate-fade-in" style="animation-delay: 1.0s;">
-                    <button class="tab-button p-3 px-4 md:px-6 rounded-lg text-sm md:text-base font-semibold transition duration-300 active-tab" data-target="tab-portraits">Portraits</button>
-                    <!-- UPDATED: Tab button for Landscape -->
-                    <button class="tab-button p-3 px-4 md:px-6 rounded-lg text-sm md:text-base font-semibold transition duration-300" data-target="tab-landscape">Landscape</button>
-                    <button class="tab-button p-3 px-4 md:px-6 rounded-lg text-sm md:text-base font-semibold transition duration-300" data-target="tab-unnamed-2">Unnamed 2</button>
-                    <button class="tab-button p-3 px-4 md:px-6 rounded-lg text-sm md:text-base font-semibold transition duration-300" data-target="tab-unnamed-3">Unnamed 3</button>
-                    <button class="tab-button p-3 px-4 md:px-6 rounded-lg text-sm md:text-base font-semibold transition duration-300" data-target="tab-unnamed-4">Unnamed 4</button>
-                    <button class="tab-button p-3 px-4 md:px-6 rounded-lg text-sm md:text-base font-semibold transition duration-300" data-target="tab-unnamed-5">Unnamed 5</button>
+                <!-- Tab Buttons -->
+                <div class="flex justify-center space-x-4 mb-8">
+                    <button class="tab-button active-tab px-6 py-2 rounded-xl text-lg font-semibold transition duration-300" data-target="tab-portraits">
+                        Portraits
+                    </button>
+                    <button class="tab-button px-6 py-2 rounded-xl text-lg font-semibold transition duration-300" data-target="tab-landscape">
+                        Landscape
+                    </button>
                 </div>
+                <!-- End Tab Buttons -->
 
                 <!-- Tab Content Containers -->
-                <div id="gallery-content">
-                    <!-- 
-                        Tab 1: Portraits (Populated with user images)
-                    -->
-                    <div id="tab-portraits" class="tab-content p-4 md:p-8 light-card rounded-xl">
+                <div class="p-4 md:p-8 light-card rounded-xl">
+                    
+                    <!-- PORTRAITS TAB CONTENT -->
+                    <div id="tab-portraits" class="tab-content">
                         <!-- 
                             Image Grid: Now uses lg:grid-cols-3 for large screens 
-                            (3 columns wide, perfect for a 1 + 1 + 1 and 1 + 2 layout)
                         -->
                         <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-3 gap-6">
                             
@@ -308,7 +306,6 @@
 
                             <!-- 
                                 Image 5: potrait-4.jpg - Now spans 2 columns (col-span-2) 
-                                and uses aspect-square to match the height of potrait-3.jpg.
                             -->
                             <div class="col-span-2 lg:col-span-2 relative overflow-hidden rounded-xl shadow-lg hover:shadow-2xl transition duration-300 transform hover:scale-[1.01] cursor-pointer aspect-square" 
                                  onclick="openLightbox('potrait-4.jpg', 'Portrait: Environmental background - Stretched View')">
@@ -320,182 +317,69 @@
                             
                         </div>
                     </div>
-
-                    <!-- 
-                        Tab 2: Landscape - Content has been added here.
-                    -->
-                    <div id="tab-landscape" class="tab-content hidden p-4 md:p-8 light-card rounded-xl">
-                        <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
-                            
-                            <!-- Image 1: potrait-5.jpg (1 col) -->
-                            <div class="relative overflow-hidden rounded-xl shadow-lg hover:shadow-2xl transition duration-300 transform hover:scale-[1.03] cursor-pointer aspect-square" 
-                                 onclick="openLightbox('potrait-5.jpg', 'Landscape: Sunset over the lagoon')">
-                                <img src="potrait-5.jpg" 
-                                     onerror="this.src='https://placehold.co/600x600/e9c19b/382200?text=Landscape+5';" 
-                                     alt="Landscape 1" 
-                                     class="w-full h-full object-cover">
-                            </div>
-                            
-                            <!-- Image 2: potrait-6.jpg (1 col) -->
-                            <div class="relative overflow-hidden rounded-xl shadow-lg hover:shadow-2xl transition duration-300 transform hover:scale-[1.03] cursor-pointer aspect-square" 
-                                 onclick="openLightbox('potrait-6.jpg', 'Landscape: Coastal view with clear water')">
-                                <img src="potrait-6.jpg" 
-                                     onerror="this.src='https://placehold.co/600x600/f0d4ba/382200?text=Landscape+6';" 
-                                     alt="Landscape 2" 
-                                     class="w-full h-full object-cover">
-                            </div>
-
-                            <!-- Image 3: potrait-8.jpg (1 col) -->
-                            <div class="relative overflow-hidden rounded-xl shadow-lg hover:shadow-2xl transition duration-300 transform hover:scale-[1.03] cursor-pointer aspect-square" 
-                                 onclick="openLightbox('potrait-8.jpg', 'Landscape: Wide view of the horizon')">
-                                <img src="potrait-8.jpg" 
-                                     onerror="this.src='https://placehold.co/600x600/f3e5d8/382200?text=Landscape+8';" 
-                                     alt="Landscape 3" 
-                                     class="w-full h-full object-cover">
-                            </div>
-
-                            <!-- Image 4: potrait-9.jpg (1 col) -->
-                            <div class="relative overflow-hidden rounded-xl shadow-lg hover:shadow-2xl transition duration-300 transform hover:scale-[1.03] cursor-pointer aspect-square" 
-                                 onclick="openLightbox('potrait-9.jpg', 'Landscape: Tropical foliage and path')">
-                                <img src="potrait-9.jpg" 
-                                     onerror="this.src='https://placehold.co/600x600/e9c19b/382200?text=Landscape+9';" 
-                                     alt="Landscape 4" 
-                                     class="w-full h-full object-cover">
-                            </div>
-
-                            <!-- Image 5: potrait-10.jpg (1 col) -->
-                            <div class="relative overflow-hidden rounded-xl shadow-lg hover:shadow-2xl transition duration-300 transform hover:scale-[1.03] cursor-pointer aspect-square" 
-                                 onclick="openLightbox('potrait-10.jpg', 'Landscape: Early morning fog over the water')">
-                                <img src="potrait-10.jpg" 
-                                     onerror="this.src='https://placehold.co/600x600/f0d4ba/382200?text=Landscape+10';" 
-                                     alt="Landscape 5" 
-                                     class="w-full h-full object-cover">
-                            </div>
-                            
-                             <!-- Image 6: potrait-11.jpg (1 col) -->
-                            <div class="relative overflow-hidden rounded-xl shadow-lg hover:shadow-2xl transition duration-300 transform hover:scale-[1.03] cursor-pointer aspect-square" 
-                                 onclick="openLightbox('potrait-11.jpg', 'Landscape: Vibrant reef colors')">
-                                <img src="potrait-11.jpg" 
-                                     onerror="this.src='https://placehold.co/600x600/f3e5d8/382200?text=Landscape+11';" 
-                                     alt="Landscape 6" 
-                                     class="w-full h-full object-cover">
-                            </div>
-                            
-                            <!-- Placeholder 7 (Remaining two empty spots in a 4-column layout) -->
-                            <div class="relative overflow-hidden rounded-xl shadow-lg bg-gray-100 flex items-center justify-center aspect-square border-2 border-dashed border-gray-300 text-gray-500 font-medium text-center">
-                                <img src="https://placehold.co/600x600/f0d4ba/70421c?text=Awaiting+Images" alt="Placeholder" class="w-full h-full object-cover aspect-square opacity-70">
-                                <span class="absolute text-sm text-[#382200] font-bold">More Coming Soon</span>
-                            </div>
-                            <!-- Placeholder 8 -->
-                            <div class="relative overflow-hidden rounded-xl shadow-lg bg-gray-100 flex items-center justify-center aspect-square border-2 border-dashed border-gray-300 text-gray-500 font-medium text-center">
-                                <img src="https://placehold.co/600x600/e9c19b/5a3617?text=Awaiting+Images" alt="Placeholder" class="w-full h-full object-cover aspect-square opacity-70">
-                                <span class="absolute text-sm text-[#382200] font-bold">More Coming Soon</span>
-                            </div>
-
-                        </div>
-                    </div>
                     
-                    <div id="tab-unnamed-2" class="tab-content hidden p-4 md:p-8 light-card rounded-xl">
-                        <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
-                            <!-- Placeholder 1 -->
-                            <div class="relative overflow-hidden rounded-xl shadow-lg bg-gray-100 flex items-center justify-center aspect-square border-2 border-dashed border-gray-300 text-gray-500 font-medium text-center">
-                                <img src="https://placehold.co/600x600/f0d4ba/70421c?text=Unnamed+2+A" alt="Placeholder" class="w-full h-full object-cover aspect-square opacity-70">
-                                <span class="absolute text-sm text-[#382200] font-bold">Awaiting Images</span>
+                    <!-- LANDSCAPE TAB CONTENT -->
+                    <div id="tab-landscape" class="tab-content hidden">
+                        <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-3 gap-6">
+                            
+                            <!-- Image 1 -->
+                            <div class="relative overflow-hidden rounded-xl shadow-lg hover:shadow-2xl transition duration-300 transform hover:scale-[1.03] cursor-pointer aspect-square" 
+                                onclick="openLightbox('uploaded:potrait-10.jpg-9419d526-c962-4205-9a13-10ab88af378c', 'Coastal Scene 1: Capturing the sunset moment.')">
+                                <img src="uploaded:potrait-10.jpg-9419d526-c962-4205-9a13-10ab88af378c" 
+                                    onerror="this.src='https://placehold.co/600x600/f3e5d8/70421c?text=Landscape+Image+1';" 
+                                    alt="Coastal Scene 1" 
+                                    class="w-full h-full object-cover">
                             </div>
-                            <!-- Placeholder 2 -->
-                            <div class="relative overflow-hidden rounded-xl shadow-lg bg-gray-100 flex items-center justify-center aspect-square border-2 border-dashed border-gray-300 text-gray-500 font-medium text-center">
-                                <img src="https://placehold.co/600x600/e9c19b/5a3617?text=Unnamed+2+B" alt="Placeholder" class="w-full h-full object-cover aspect-square opacity-70">
-                                <span class="absolute text-sm text-[#382200] font-bold">Awaiting Images</span>
+                            
+                            <!-- Image 2 -->
+                            <div class="relative overflow-hidden rounded-xl shadow-lg hover:shadow-2xl transition duration-300 transform hover:scale-[1.03] cursor-pointer aspect-square" 
+                                 onclick="openLightbox('uploaded:potrait-9.jpg-1a7e340c-6a8d-4293-b843-578e233c5062', 'Coastal Scene 2: Wide view of the horizon.')">
+                                <img src="uploaded:potrait-9.jpg-1a7e340c-6a8d-4293-b843-578e233c5062" 
+                                     onerror="this.src='https://placehold.co/600x600/f3e5d8/70421c?text=Landscape+Image+2';" 
+                                     alt="Coastal Scene 2" 
+                                     class="w-full h-full object-cover">
                             </div>
-                            <!-- Placeholder 3 -->
-                            <div class="relative overflow-hidden rounded-xl shadow-lg bg-gray-100 flex items-center justify-center aspect-square border-2 border-dashed border-gray-300 text-gray-500 font-medium text-center">
-                                <img src="https://placehold.co/600x600/f3e5d8/70421c?text=Unnamed+2+C" alt="Placeholder" class="w-full h-full object-cover aspect-square opacity-70">
-                                <span class="absolute text-sm text-[#382200] font-bold">Awaiting Images</span>
-                            </div>
-                            <!-- Placeholder 4 -->
-                            <div class="relative overflow-hidden rounded-xl shadow-lg bg-gray-100 flex items-center justify-center aspect-square border-2 border-dashed border-gray-300 text-gray-500 font-medium text-center">
-                                <img src="https://placehold.co/600x600/f0d4ba/382200?text=Unnamed+2+D" alt="Placeholder" class="w-full h-full object-cover aspect-square opacity-70">
-                                <span class="absolute text-sm text-[#382200] font-bold">Awaiting Images</span>
-                            </div>
-                        </div>
-                    </div>
 
-                    <div id="tab-unnamed-3" class="tab-content hidden p-4 md:p-8 light-card rounded-xl">
-                        <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
-                            <!-- Placeholder 1 -->
-                            <div class="relative overflow-hidden rounded-xl shadow-lg bg-gray-100 flex items-center justify-center aspect-square border-2 border-dashed border-gray-300 text-gray-500 font-medium text-center">
-                                <img src="https://placehold.co/600x600/e9c19b/70421c?text=Unnamed+3+A" alt="Placeholder" class="w-full h-full object-cover aspect-square opacity-70">
-                                <span class="absolute text-sm text-[#382200] font-bold">Awaiting Images</span>
+                            <!-- Image 3 -->
+                            <div class="relative overflow-hidden rounded-xl shadow-lg hover:shadow-2xl transition duration-300 transform hover:scale-[1.03] cursor-pointer aspect-square" 
+                                 onclick="openLightbox('uploaded:potrait-8.jpg-2ead2c11-5e8b-48be-b666-bf50c62824d4', 'Coastal Scene 3: High contrast island life.')">
+                                <img src="uploaded:potrait-8.jpg-2ead2c11-5e8b-48be-b666-bf50c62824d4" 
+                                     onerror="this.src='https://placehold.co/600x600/f3e5d8/70421c?text=Landscape+Image+3';" 
+                                     alt="Coastal Scene 3" 
+                                     class="w-full h-full object-cover">
                             </div>
-                            <!-- Placeholder 2 -->
-                            <div class="relative overflow-hidden rounded-xl shadow-lg bg-gray-100 flex items-center justify-center aspect-square border-2 border-dashed border-gray-300 text-gray-500 font-medium text-center">
-                                <img src="https://placehold.co/600x600/f3e5d8/5a3617?text=Unnamed+3+B" alt="Placeholder" class="w-full h-full object-cover aspect-square opacity-70">
-                                <span class="absolute text-sm text-[#382200] font-bold">Awaiting Images</span>
-                            </div>
-                            <!-- Placeholder 3 -->
-                            <div class="relative overflow-hidden rounded-xl shadow-lg bg-gray-100 flex items-center justify-center aspect-square border-2 border-dashed border-gray-300 text-gray-500 font-medium text-center">
-                                <img src="https://placehold.co/600x600/f0d4ba/70421c?text=Unnamed+3+C" alt="Placeholder" class="w-full h-full object-cover aspect-square opacity-70">
-                                <span class="absolute text-sm text-[#382200] font-bold">Awaiting Images</span>
-                            </div>
-                            <!-- Placeholder 4 -->
-                            <div class="relative overflow-hidden rounded-xl shadow-lg bg-gray-100 flex items-center justify-center aspect-square border-2 border-dashed border-gray-300 text-gray-500 font-medium text-center">
-                                <img src="https://placehold.co/600x600/e9c19b/382200?text=Unnamed+3+D" alt="Placeholder" class="w-full h-full object-cover aspect-square opacity-70">
-                                <span class="absolute text-sm text-[#382200] font-bold">Awaiting Images</span>
-                            </div>
-                        </div>
-                    </div>
 
-                    <div id="tab-unnamed-4" class="tab-content hidden p-4 md:p-8 light-card rounded-xl">
-                        <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
-                            <!-- Placeholder 1 -->
-                            <div class="relative overflow-hidden rounded-xl shadow-lg bg-gray-100 flex items-center justify-center aspect-square border-2 border-dashed border-gray-300 text-gray-500 font-medium text-center">
-                                <img src="https://placehold.co/600x600/f3e5d8/70421c?text=Unnamed+4+A" alt="Placeholder" class="w-full h-full object-cover aspect-square opacity-70">
-                                <span class="absolute text-sm text-[#382200] font-bold">Awaiting Images</span>
+                            <!-- Image 4 -->
+                            <div class="relative overflow-hidden rounded-xl shadow-lg hover:shadow-2xl transition duration-300 transform hover:scale-[1.03] cursor-pointer aspect-square" 
+                                 onclick="openLightbox('uploaded:potrait-6.jpg-1ea4bc11-922f-4a59-bc83-edd45132d5f7', 'Coastal Scene 4: Beach landscape with motion.')">
+                                <img src="uploaded:potrait-6.jpg-1ea4bc11-922f-4a59-bc83-edd45132d5f7" 
+                                     onerror="this.src='https://placehold.co/600x600/f3e5d8/70421c?text=Landscape+Image+4';" 
+                                     alt="Coastal Scene 4" 
+                                     class="w-full h-full object-cover">
                             </div>
-                            <!-- Placeholder 2 -->
-                            <div class="relative overflow-hidden rounded-xl shadow-lg bg-gray-100 flex items-center justify-center aspect-square border-2 border-dashed border-gray-300 text-gray-500 font-medium text-center">
-                                <img src="https://placehold.co/600x600/f0d4ba/5a3617?text=Unnamed+4+B" alt="Placeholder" class="w-full h-full object-cover aspect-square opacity-70">
-                                <span class="absolute text-sm text-[#382200] font-bold">Awaiting Images</span>
+                            
+                            <!-- Image 5 -->
+                            <div class="relative overflow-hidden rounded-xl shadow-lg hover:shadow-2xl transition duration-300 transform hover:scale-[1.03] cursor-pointer aspect-square" 
+                                 onclick="openLightbox('uploaded:potrait-5.jpg-d3213778-eb1a-4a70-8e29-96d78670bb19', 'Coastal Scene 5: Abstract reflection.')">
+                                <img src="uploaded:potrait-5.jpg-d3213778-eb1a-4a70-8e29-96d78670bb19" 
+                                     onerror="this.src='https://placehold.co/600x600/f3e5d8/70421c?text=Landscape+Image+5';" 
+                                     alt="Coastal Scene 5" 
+                                     class="w-full h-full object-cover">
                             </div>
-                            <!-- Placeholder 3 -->
-                            <div class="relative overflow-hidden rounded-xl shadow-lg bg-gray-100 flex items-center justify-center aspect-square border-2 border-dashed border-gray-300 text-gray-500 font-medium text-center">
-                                <img src="https://placehold.co/600x600/e9c19b/70421c?text=Unnamed+4+C" alt="Placeholder" class="w-full h-full object-cover aspect-square opacity-70">
-                                <span class="absolute text-sm text-[#382200] font-bold">Awaiting Images</span>
-                            </div>
-                            <!-- Placeholder 4 -->
-                            <div class="relative overflow-hidden rounded-xl shadow-lg bg-gray-100 flex items-center justify-center aspect-square border-2 border-dashed border-gray-300 text-gray-500 font-medium text-center">
-                                <img src="https://placehold.co/600x600/f3e5d8/382200?text=Unnamed+4+D" alt="Placeholder" class="w-full h-full object-cover aspect-square opacity-70">
-                                <span class="absolute text-sm text-[#382200] font-bold">Awaiting Images</span>
-                            </div>
-                        </div>
-                    </div>
-                    
-                    <div id="tab-unnamed-5" class="tab-content hidden p-4 md:p-8 light-card rounded-xl">
-                        <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
-                            <!-- Placeholder 1 -->
-                            <div class="relative overflow-hidden rounded-xl shadow-lg bg-gray-100 flex items-center justify-center aspect-square border-2 border-dashed border-gray-300 text-gray-500 font-medium text-center">
-                                <img src="https://placehold.co/600x600/f0d4ba/70421c?text=Unnamed+5+A" alt="Placeholder" class="w-full h-full object-cover aspect-square opacity-70">
-                                <span class="absolute text-sm text-[#382200] font-bold">Awaiting Images</span>
-                            </div>
-                            <!-- Placeholder 2 -->
-                            <div class="relative overflow-hidden rounded-xl shadow-lg bg-gray-100 flex items-center justify-center aspect-square border-2 border-dashed border-gray-300 text-gray-500 font-medium text-center">
-                                <img src="https://placehold.co/600x600/e9c19b/5a3617?text=Unnamed+5+B" alt="Placeholder" class="w-full h-full object-cover aspect-square opacity-70">
-                                <span class="absolute text-sm text-[#382200] font-bold">Awaiting Images</span>
-                            </div>
-                            <!-- Placeholder 3 -->
-                            <div class="relative overflow-hidden rounded-xl shadow-lg bg-gray-100 flex items-center justify-center aspect-square border-2 border-dashed border-gray-300 text-gray-500 font-medium text-center">
-                                <img src="https://placehold.co/600x600/f3e5d8/70421c?text=Unnamed+5+C" alt="Placeholder" class="w-full h-full object-cover aspect-square opacity-70">
-                                <span class="absolute text-sm text-[#382200] font-bold">Awaiting Images</span>
-                            </div>
-                            <!-- Placeholder 4 -->
-                            <div class="relative overflow-hidden rounded-xl shadow-lg bg-gray-100 flex items-center justify-center aspect-square border-2 border-dashed border-gray-300 text-gray-500 font-medium text-center">
-                                <img src="https://placehold.co/600x600/f0d4ba/382200?text=Unnamed+5+D" alt="Placeholder" class="w-full h-full object-cover aspect-square opacity-70">
-                                <span class="absolute text-sm text-[#382200] font-bold">Awaiting Images</span>
+                            
+                            <!-- Image 6 -->
+                            <div class="relative overflow-hidden rounded-xl shadow-lg hover:shadow-2xl transition duration-300 transform hover:scale-[1.03] cursor-pointer aspect-square" 
+                                 onclick="openLightbox('uploaded:potrait-11.jpg-c42f05b1-f769-4544-b78f-8a8527327866', 'Coastal Scene 6: Dramatic cloud coverage.')">
+                                <img src="uploaded:potrait-11.jpg-c42f05b1-f769-4544-b78f-8a8527327866" 
+                                     onerror="this.src='https://placehold.co/600x600/f3e5d8/70421c?text=Landscape+Image+6';" 
+                                     alt="Coastal Scene 6" 
+                                     class="w-full h-full object-cover">
                             </div>
                         </div>
                     </div>
 
                 </div>
+
             </div>
         </section>
 
@@ -591,35 +475,29 @@
             }, 300); // Wait for opacity transition
         }
 
-        // --- Tab Switching Logic ---
+        // --- Gallery Tab Functions ---
         function switchTab(targetId) {
-            // 1. Deactivate all tab buttons
+            // Remove active class from all buttons and hide all content
             document.querySelectorAll('.tab-button').forEach(btn => {
                 btn.classList.remove('active-tab');
             });
-
-            // 2. Hide all tab content
             document.querySelectorAll('.tab-content').forEach(content => {
                 content.classList.add('hidden');
             });
 
-            // 3. Activate the clicked button
-            const newActiveButton = document.querySelector(`[data-target="${targetId}"]`);
-            if (newActiveButton) {
-                newActiveButton.classList.add('active-tab');
+            // Add active class to the selected button
+            const activeButton = document.querySelector(`.tab-button[data-target="${targetId}"]`);
+            if (activeButton) {
+                activeButton.classList.add('active-tab');
             }
 
-            // 4. Show the target content
+            // Show the target content
             const targetContent = document.getElementById(targetId);
             if (targetContent) {
                 targetContent.classList.remove('hidden');
-                // Scroll to the content if on mobile
-                if (window.innerWidth < 768) { 
-                    targetContent.scrollIntoView({ behavior: 'smooth', block: 'start' });
-                }
             }
         }
-        
+
         // --- Animation Observer ---
         // Sets up an Intersection Observer to trigger animations when elements enter the viewport
         const observer = new IntersectionObserver((entries, observer) => {
@@ -660,7 +538,7 @@
                     });
                 });
             });
-
+            
             // 3. Tab Button Click Handlers
             document.querySelectorAll('.tab-button').forEach(button => {
                 button.addEventListener('click', function() {

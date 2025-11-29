@@ -28,7 +28,7 @@
         }
         .primary-btn:hover {
             background-color: #5a3617; /* Darker Espresso */
-            box-shadow: 0 4px 15px rgba(112, 66, 28, 0.4); /* Brown shadow */
+            box-shadow: 0 4px 15px (112, 66, 28, 0.4); /* Brown shadow */
             transform: translateY(-2px);
         }
         /* Light Card Styling (Pure white for sharp contrast) */
@@ -301,22 +301,21 @@
                                      class="w-full h-full object-cover">
                             </div>
 
-                            <!-- Image 5: potrait-4.jpg - Now spans 2 columns (col-span-2) -->
-                            <div class="col-span-2 lg:col-span-2 relative overflow-hidden rounded-xl shadow-lg hover:shadow-2xl transition duration-300 transform hover:scale-[1.01] cursor-pointer aspect-square" 
-                                 onclick="openLightbox('potrait-4.jpg', 'Portrait: Environmental background - Stretched View')">
+                            <!-- Image 5: potrait-4.jpg (RESTORED Wide Placeholder) - Spans 2 columns -->
+                            <div class="col-span-2 relative overflow-hidden rounded-xl shadow-lg hover:shadow-2xl transition duration-300 transform hover:scale-[1.01] cursor-pointer aspect-[2/1]" 
+                                 onclick="openLightbox('potrait-4.jpg', 'STRETCHED VIEW 2:1 Placeholder')">
                                 <img src="potrait-4.jpg" 
                                      onerror="this.src='https://placehold.co/1200x600/f3e5d8/70421c?text=Portrait+4+-+STRETCHED+VIEW+2:1';" 
-                                     alt="Portrait 4" 
+                                     alt="Portrait 4 - Wide Placeholder" 
                                      class="w-full h-full object-cover">
                             </div>
-                            
-                            <!-- Image 1: potrait-15.jpg (1 col) -->
-                           <div class="relative overflow-hidden rounded-xl shadow-lg hover:shadow-2xl transition duration-300 transform hover:scale-[1.03] cursor-pointer aspect-square min-h-[200px]"
-                                onclick="openLightbox('portrait-15.jpg', 'Portrait: New added photo')">
-                               <img src="portrait-15.jpg"
-                                    onerror="this.src='https://via.placeholder.com/600x600/000000/ffffff?text=Portrait+15'"
-                                    alt="Portrait 15"
-                                    class="w-full h-full object-cover">
+
+                            <!-- Image 6: potrait-15.jpg (NEW standard 1-column image) -->
+                            <div class="relative overflow-hidden rounded-xl shadow-lg hover:shadow-2xl transition duration-300 transform hover:scale-[1.03] cursor-pointer aspect-square" onclick="openLightbox('potrait-15.jpg', 'Environmental Portrait: Woman and horse in misty mountains')">
+                                <img src="potrait-15.jpg" 
+                                     onerror="this.src='https://placehold.co/600x600/f3e5d8/70421c?text=Image+of+Horse+and+Girl';" 
+                                     alt="Horse and Girl Portrait" 
+                                     class="w-full h-full object-cover">
                             </div>
                             
                         </div>
@@ -522,58 +521,30 @@
         
         // --- Event Listeners and Initial Setup ---
         document.addEventListener('DOMContentLoaded', () => {
+            
             // 1. Mobile Menu Toggle
-            document.getElementById('menu-button').addEventListener('click', function() {
-                document.getElementById('mobile-menu').classList.toggle('hidden');
-            });
+            const menuButton = document.getElementById('menu-button');
+            const mobileMenu = document.getElementById('mobile-menu');
 
-            // 2. Smooth scrolling for navigation links
-            document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-                anchor.addEventListener('click', function (e) {
-                    e.preventDefault();
-                    // Ensure the menu is closed when an item is clicked on mobile
-                    const mobileMenu = document.getElementById('mobile-menu');
-                    if (!mobileMenu.classList.contains('hidden')) {
-                        mobileMenu.classList.add('hidden');
-                    }
-                    
-                    document.querySelector(this.getAttribute('href')).scrollIntoView({
-                        behavior: 'smooth'
-                    });
+            if (menuButton && mobileMenu) {
+                menuButton.addEventListener('click', () => {
+                    mobileMenu.classList.toggle('hidden');
+                });
+            }
+
+            // 2. Tab Switching Logic
+            const tabButtons = document.querySelectorAll('.tab-button');
+            tabButtons.forEach(button => {
+                button.addEventListener('click', () => {
+                    const target = button.getAttribute('data-target');
+                    switchTab(target);
                 });
             });
-            
-            // 3. Tab Button Click Handlers
-            document.querySelectorAll('.tab-button').forEach(button => {
-                button.addEventListener('click', function() {
-                    switchTab(this.dataset.target);
-                });
-            });
-            
-            // 4. Close lightbox on ESC key press
-            document.addEventListener('keydown', function(e) {
-                const lightbox = document.getElementById('lightbox');
-                if (e.key === 'Escape' && !lightbox.classList.contains('hidden')) {
-                    closeLightbox();
-                }
-            });
 
-            // 5. Apply Intersection Observer to all elements with 'animate-fade-in' or 'animate-scale-in'
-            document.querySelectorAll('.animate-fade-in, .animate-scale-in').forEach(element => {
-                observer.observe(element);
-            });
-
-            // Set the initial active tab (Portraits)
-            switchTab('tab-portraits');
+            // 3. Initialize Animations for elements with .animate-fade-in
+            const animatedElements = document.querySelectorAll('.animate-fade-in');
+            animatedElements.forEach(el => observer.observe(el));
         });
     </script>
 </body>
 </html>
-
-
-
-
-
-
-
-

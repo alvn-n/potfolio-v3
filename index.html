@@ -7,6 +7,11 @@
     <!-- Load Tailwind CSS -->
     <script src="https://cdn.tailwindcss.com"></script>
     <style>
+        /* ADDED: Enables smooth scrolling when clicking anchor links like #gallery or #contact */
+        html {
+            scroll-behavior: smooth;
+        }
+        
         /* COFFEE THEME BASE STYLES */
         /* Color Palette: Cream (#f8f6f2), Rich Coffee (#70421c), Espresso (#382200) */
         body {
@@ -14,7 +19,7 @@
             background-color: #f8f6f2; /* Subtle, creamy light gray background (Foam/Milk) */
             color: #382200; /* Dark Espresso text color */
             line-height: 1.6;
-            scroll-behavior: smooth;
+            /* The 'scroll-behavior: smooth;' is now applied globally to the html element above */
         }
         /* Custom Accent and Button Styles */
         .primary-accent {
@@ -100,6 +105,44 @@
         .contact-icon {
             color: #70421c; /* Rich Coffee Brown for the icon */
             stroke-width: 2.5;
+        }
+
+        /* === LIGHTBOX NAV ARROW STYLES (NEW) === */
+        .lightbox-nav-btn {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            z-index: 102; /* Above the image container, below the close button */
+            width: 56px; /* Larger touch target */
+            height: 56px;
+            background-color: #70421c; /* Rich Coffee Brown */
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            opacity: 0.8;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+        }
+        .lightbox-nav-btn:hover {
+            opacity: 1;
+            background-color: #5a3617; /* Darker Espresso on hover */
+            transform: translateY(-50%) scale(1.05);
+        }
+        .lightbox-nav-btn:disabled {
+            opacity: 0.3;
+            cursor: not-allowed;
+            transform: translateY(-50%) scale(1);
+            background-color: #70421c;
+        }
+        #prev-btn { left: 20px; }
+        #next-btn { right: 20px; }
+
+        /* Style for smooth image fading (NEW) */
+        #lightbox-image {
+            transition: opacity 0.3s ease-in-out;
+            opacity: 1;
         }
     </style>
     <!-- Include the Inter font -->
@@ -253,10 +296,10 @@
 
                 <!-- Tab Buttons -->
                 <div class="flex justify-center space-x-4 mb-8">
-                    <button class="tab-button active-tab px-6 py-2 rounded-xl text-lg font-semibold transition duration-300" data-target="tab-portraits">
+                    <button id="portraits-tab" class="tab-button active-tab px-6 py-2 rounded-xl text-lg font-semibold transition duration-300" data-target="tab-portraits">
                         Portraits
                     </button>
-                    <button class="tab-button px-6 py-2 rounded-xl text-lg font-semibold transition duration-300" data-target="tab-landscape">
+                    <button id="landscape-tab" class="tab-button px-6 py-2 rounded-xl text-lg font-semibold transition duration-300" data-target="tab-landscape">
                         Landscape
                     </button>
                 </div>
@@ -270,7 +313,7 @@
                         <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-3 gap-6">
                             
                             <!-- Image 1: potrait-0.jpg (1 col) -->
-                            <div class="relative overflow-hidden rounded-xl shadow-lg hover:shadow-2xl transition duration-300 transform hover:scale-[1.03] cursor-pointer aspect-square" onclick="openLightbox('potrait-0.jpg', 'Portrait: Soft natural light')">
+                            <div class="relative overflow-hidden rounded-xl shadow-lg hover:shadow-2xl transition duration-300 transform hover:scale-[1.03] cursor-pointer aspect-square" onclick="openLightbox('potrait-0.jpg')">
                                 <img src="potrait-0.jpg" 
                                      onerror="this.src='https://placehold.co/600x600/f3e5d8/70421c?text=Image+0';" 
                                      alt="Portrait 0" 
@@ -278,7 +321,7 @@
                             </div>
 
                             <!-- Image 2: potrait-1.jpg (1 col) -->
-                            <div class="relative overflow-hidden rounded-xl shadow-lg hover:shadow-2xl transition duration-300 transform hover:scale-[1.03] cursor-pointer aspect-square" onclick="openLightbox('potrait-1.jpg', 'Portrait: High contrast outdoor shot')">
+                            <div class="relative overflow-hidden rounded-xl shadow-lg hover:shadow-2xl transition duration-300 transform hover:scale-[1.03] cursor-pointer aspect-square" onclick="openLightbox('potrait-1.jpg')">
                                 <img src="potrait-1.jpg" 
                                      onerror="this.src='https://placehold.co/600x600/f3e5d8/70421c?text=Image+1';" 
                                      alt="Portrait 1" 
@@ -286,7 +329,7 @@
                             </div>
 
                             <!-- Image 3: potrait-2.jpg (1 col) - Ends Row 1 on Lg screens -->
-                            <div class="relative overflow-hidden rounded-xl shadow-lg hover:shadow-2xl transition duration-300 transform hover:scale-[1.03] cursor-pointer aspect-square" onclick="openLightbox('potrait-2.jpg', 'Portrait: Studio style headshot')">
+                            <div class="relative overflow-hidden rounded-xl shadow-lg hover:shadow-2xl transition duration-300 transform hover:scale-[1.03] cursor-pointer aspect-square" onclick="openLightbox('potrait-2.jpg')">
                                 <img src="potrait-2.jpg" 
                                      onerror="this.src='https://placehold.co/600x600/f3e5d8/70421c?text=Image+2';" 
                                      alt="Portrait 2" 
@@ -294,7 +337,7 @@
                             </div>
 
                             <!-- Image 4: potrait-3.jpg (1 col) - Starts Row 2 -->
-                            <div class="relative overflow-hidden rounded-xl shadow-lg hover:shadow-2xl transition duration-300 transform hover:scale-[1.03] cursor-pointer aspect-square" onclick="openLightbox('potrait-3.jpg', 'Portrait: Candid shot with depth of field')">
+                            <div class="relative overflow-hidden rounded-xl shadow-lg hover:shadow-2xl transition duration-300 transform hover:scale-[1.03] cursor-pointer aspect-square" onclick="openLightbox('potrait-3.jpg')">
                                 <img src="potrait-3.jpg" 
                                      onerror="this.src='https://placehold.co/600x600/f3e5d8/70421c?text=Image+3';" 
                                      alt="Portrait 3" 
@@ -303,7 +346,7 @@
 
                             <!-- IMAGE 5: potrait-4.jpg (2x2 BLOCK) -->
                             <div class="col-span-2 md:row-span-2 relative overflow-hidden rounded-xl shadow-lg hover:shadow-2xl transition duration-300 transform hover:scale-[1.01] cursor-pointer aspect-square" 
-                                 onclick="openLightbox('potrait-4.jpg', 'STRETCHED VIEW 2:2 Placeholder')">
+                                 onclick="openLightbox('potrait-4.jpg')">
                                 <img src="potrait-4.jpg" 
                                      onerror="this.src='https://placehold.co/1200x1200/f3e5d8/70421c?text=Portrait+4+-+2X2+VIEW';" 
                                      alt="Portrait 4 - 2x2 Block" 
@@ -311,7 +354,7 @@
                             </div>
 
                             <!-- Image 6: potrait-15.jpg (1 col) - Note: This appears in the 3rd row, 1st column -->
-                            <div class="relative overflow-hidden rounded-xl shadow-lg hover:shadow-2xl transition duration-300 transform hover:scale-[1.03] cursor-pointer aspect-square" onclick="openLightbox('potrait-15.jpg', 'Environmental Portrait: Woman and horse in misty mountains')">
+                            <div class="relative overflow-hidden rounded-xl shadow-lg hover:shadow-2xl transition duration-300 transform hover:scale-[1.03] cursor-pointer aspect-square" onclick="openLightbox('potrait-15.jpg')">
                                 <img src="potrait-15.jpg" 
                                      onerror="this.src='https://placehold.co/600x600/f3e5d8/70421c?text=Image+of+Horse+and+Girl';" 
                                      alt="Horse and Girl Portrait" 
@@ -327,7 +370,7 @@
                             
                             <!-- New Image 1: potrait-12.jpg (Street Landscape) -->
                             <div class="relative overflow-hidden rounded-xl shadow-lg hover:shadow-2xl transition duration-300 transform hover:scale-[1.03] cursor-pointer aspect-square" 
-                                onclick="openLightbox('potrait-12.jpg', 'Urban Landscape: Streets and buildings')">
+                                onclick="openLightbox('potrait-12.jpg')">
                                 <img src="potrait-12.jpg" 
                                     onerror="this.src='https://placehold.co/600x600/f3e5d8/70421c?text=Street+Scene';" 
                                     alt="Street Scene" 
@@ -336,7 +379,7 @@
 
                             <!-- New Image 2: potrait-14.jpg (Cityscape/Hill View) -->
                             <div class="relative overflow-hidden rounded-xl shadow-lg hover:shadow-2xl transition duration-300 transform hover:scale-[1.03] cursor-pointer aspect-square" 
-                                 onclick="openLightbox('potrait-14.jpg', 'High View Landscape: Lake and Cityscape')">
+                                 onclick="openLightbox('potrait-14.jpg')">
                                 <img src="potrait-14.jpg" 
                                      onerror="this.src='https://placehold.co/600x600/f3e5d8/70421c?text=High+View+Cityscape';" 
                                      alt="High View Cityscape" 
@@ -345,7 +388,7 @@
 
                             <!-- New Image 3: potrait-13.jpg (Shaded Path) -->
                             <div class="relative overflow-hidden rounded-xl shadow-lg hover:shadow-2xl transition duration-300 transform hover:scale-[1.03] cursor-pointer aspect-square" 
-                                 onclick="openLightbox('potrait-13.jpg', 'Tropical Landscape: Shaded path through trees')">
+                                 onclick="openLightbox('potrait-13.jpg')">
                                 <img src="potrait-13.jpg" 
                                      onerror="this.src='https://placehold.co/600x600/f3e5d8/70421c?text=Shaded+Tropical+Path';" 
                                      alt="Shaded Tropical Path" 
@@ -354,7 +397,7 @@
                             
                             <!-- Existing Image 1: potrait-10.jpg -->
                             <div class="relative overflow-hidden rounded-xl shadow-lg hover:shadow-2xl transition duration-300 transform hover:scale-[1.03] cursor-pointer aspect-square" 
-                                onclick="openLightbox('potrait-10.jpg', 'Coastal Scene 1: Capturing the sunset moment.')">
+                                onclick="openLightbox('potrait-10.jpg')">
                                 <img src="potrait-10.jpg" 
                                     onerror="this.src='https://placehold.co/600x600/f3e5d8/70421c?text=Landscape+Image+1';" 
                                     alt="Coastal Scene 1" 
@@ -363,7 +406,7 @@
                             
                             <!-- Existing Image 2: potrait-9.jpg -->
                             <div class="relative overflow-hidden rounded-xl shadow-lg hover:shadow-2xl transition duration-300 transform hover:scale-[1.03] cursor-pointer aspect-square" 
-                                 onclick="openLightbox('potrait-9.jpg', 'Coastal Scene 2: Wide view of the horizon.')">
+                                 onclick="openLightbox('potrait-9.jpg')">
                                 <img src="potrait-9.jpg" 
                                      onerror="this.src='https://placehold.co/600x600/f3e5d8/70421c?text=Landscape+Image+2';" 
                                      alt="Coastal Scene 2" 
@@ -372,7 +415,7 @@
 
                             <!-- Existing Image 3: potrait-8.jpg -->
                             <div class="relative overflow-hidden rounded-xl shadow-lg hover:shadow-2xl transition duration-300 transform hover:scale-[1.03] cursor-pointer aspect-square" 
-                                 onclick="openLightbox('potrait-8.jpg', 'Coastal Scene 3: High contrast island life.')">
+                                 onclick="openLightbox('potrait-8.jpg')">
                                 <img src="potrait-8.jpg" 
                                      onerror="this.src='https://placehold.co/600x600/f3e5d8/70421c?text=Landscape+Image+3';" 
                                      alt="Coastal Scene 3" 
@@ -381,7 +424,7 @@
 
                             <!-- Existing Image 4: potrait-6.jpg -->
                             <div class="relative overflow-hidden rounded-xl shadow-lg hover:shadow-2xl transition duration-300 transform hover:scale-[1.03] cursor-pointer aspect-square" 
-                                 onclick="openLightbox('potrait-6.jpg', 'Coastal Scene 4: Beach landscape with motion.')">
+                                 onclick="openLightbox('potrait-6.jpg')">
                                 <img src="potrait-6.jpg" 
                                      onerror="this.src='https://placehold.co/600x600/f3e5d8/70421c?text=Landscape+Image+4';" 
                                      alt="Coastal Scene 4" 
@@ -390,7 +433,7 @@
                             
                             <!-- Existing Image 5: potrait-5.jpg -->
                             <div class="relative overflow-hidden rounded-xl shadow-lg hover:shadow-2xl transition duration-300 transform hover:scale-[1.03] cursor-pointer aspect-square" 
-                                 onclick="openLightbox('potrait-5.jpg', 'Coastal Scene 5: Abstract reflection.')">
+                                 onclick="openLightbox('potrait-5.jpg')">
                                 <img src="potrait-5.jpg" 
                                      onerror="this.src='https://placehold.co/600x600/f3e5d8/70421c?text=Landscape+Image+5';" 
                                      alt="Coastal Scene 5" 
@@ -399,7 +442,7 @@
                             
                             <!-- Existing Image 6: potrait-11.jpg -->
                             <div class="relative overflow-hidden rounded-xl shadow-lg hover:shadow-2xl transition duration-300 transform hover:scale-[1.03] cursor-pointer aspect-square" 
-                                 onclick="openLightbox('potrait-11.jpg', 'Coastal Scene 6: Dramatic cloud coverage.')">
+                                 onclick="openLightbox('potrait-11.jpg')">
                                 <img src="potrait-11.jpg" 
                                      onerror="this.src='https://placehold.co/600x600/f3e5d8/70421c?text=Landscape+Image+6';" 
                                      alt="Coastal Scene 6" 
@@ -408,7 +451,7 @@
 
                             <!-- NEW IMAGE (potrait-7.jpg) - Spans all 3 columns (1x3 visual effect) -->
                             <div class="col-span-full relative overflow-hidden rounded-xl shadow-lg hover:shadow-2xl transition duration-300 transform hover:scale-[1.01] cursor-pointer aspect-[3/1]" 
-                                 onclick="openLightbox('potrait-7.jpg', 'Wildlife/Nature: Monkey resting in the grass.')">
+                                 onclick="openLightbox('potrait-7.jpg')">
                                 <img src="potrait-7.jpg" 
                                      onerror="this.src='https://placehold.co/1200x400/f3e5d8/70421c?text=Full+Width+Image+7';" 
                                      alt="Wildlife: Monkey in Grass" 
@@ -474,18 +517,27 @@
     
     <!-- Lightbox Modal (Hidden by default) -->
     <div id="lightbox" class="fixed inset-0 z-[100] hidden bg-black bg-opacity-90 flex items-center justify-center p-4 transition-opacity duration-300 opacity-0" onclick="closeLightbox()">
+        
+        <!-- Close Button -->
+        <button onclick="closeLightbox()" class="absolute top-4 right-4 text-white text-4xl font-light opacity-80 hover:opacity-100 transition duration-300 z-[103]">
+            &times;
+        </button>
+
+        <!-- Previous Button (NEW) -->
+        <button id="prev-btn" class="lightbox-nav-btn" onclick="navigateLightbox(-1); event.stopPropagation();">
+            <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-chevron-left"><path d="m15 18-6-6 6-6"/></svg>
+        </button>
+        
+        <!-- Next Button (NEW) -->
+        <button id="next-btn" class="lightbox-nav-btn" onclick="navigateLightbox(1); event.stopPropagation();">
+            <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-chevron-right"><path d="m9 18 6-6-6-6"/></svg>
+        </button>
+
         <!-- Container to stop event propagation on image click -->
         <div class="max-w-7xl w-full mx-auto" onclick="event.stopPropagation()">
-            
-            <!-- Close Button -->
-            <button onclick="closeLightbox()" class="absolute top-4 right-4 text-white text-4xl font-light opacity-80 hover:opacity-100 transition duration-300 z-[101]">
-                &times;
-            </button>
-
-            <!-- Image Container -->
+            <!-- Image Container (Caption element removed from here) -->
             <div class="bg-white rounded-lg overflow-hidden shadow-2xl">
                 <img id="lightbox-image" src="" alt="Gallery Image" class="w-full max-h-[85vh] object-contain mx-auto">
-                <div id="lightbox-caption" class="p-4 text-center bg-[#382200] text-white text-lg font-medium"></div>
             </div>
         </div>
     </div>
@@ -493,17 +545,69 @@
 
     <!-- JavaScript for Interactivity -->
     <script>
+        // Global state for lightbox navigation
+        let currentImageIndex = -1;
+        let activeGalleryTab = 'portraits'; // 'portraits' or 'landscape'
+
+        // Centralized Image Data (Source and Tab Category only - Caption removed)
+        const galleryData = [
+            // --- PORTRAITS TAB ---
+            { src: 'potrait-0.jpg', tab: 'portraits' },
+            { src: 'potrait-1.jpg', tab: 'portraits' },
+            { src: 'potrait-2.jpg', tab: 'portraits' },
+            { src: 'potrait-3.jpg', tab: 'portraits' },
+            { src: 'potrait-4.jpg', tab: 'portraits' },
+            { src: 'potrait-15.jpg', tab: 'portraits' },
+            // --- LANDSCAPE TAB ---
+            { src: 'potrait-12.jpg', tab: 'landscape' },
+            { src: 'potrait-14.jpg', tab: 'landscape' },
+            { src: 'potrait-13.jpg', tab: 'landscape' },
+            { src: 'potrait-10.jpg', tab: 'landscape' },
+            { src: 'potrait-9.jpg', tab: 'landscape' },
+            { src: 'potrait-8.jpg', tab: 'landscape' },
+            { src: 'potrait-6.jpg', tab: 'landscape' },
+            { src: 'potrait-5.jpg', tab: 'landscape' },
+            { src: 'potrait-11.jpg', tab: 'landscape' },
+            { src: 'potrait-7.jpg', tab: 'landscape' }
+        ];
+
         // --- Lightbox Functions ---
-        function openLightbox(src, caption) {
+        function getFilteredGallery() {
+            return galleryData.filter(item => item.tab === activeGalleryTab);
+        }
+
+        function updateNavigationButtons(filteredImages) {
+            const prevBtn = document.getElementById('prev-btn');
+            const nextBtn = document.getElementById('next-btn');
+            
+            // Disable logic: Prev button disabled at index 0, Next button disabled at last index
+            prevBtn.disabled = (currentImageIndex <= 0);
+            nextBtn.disabled = (currentImageIndex >= filteredImages.length - 1);
+        }
+
+        function openLightbox(src) {
+            // Find the current tab
+            activeGalleryTab = document.querySelector('.tab-button.active-tab').getAttribute('data-target').replace('tab-', '');
+            
+            const filteredImages = getFilteredGallery();
+            
+            // Find the index of the clicked image in the filtered list
+            const clickedImageIndex = filteredImages.findIndex(item => item.src === src);
+            if (clickedImageIndex === -1) return; // Should not happen
+
+            currentImageIndex = clickedImageIndex;
+
             const lightbox = document.getElementById('lightbox');
             const img = document.getElementById('lightbox-image');
-            const cap = document.getElementById('lightbox-caption');
 
-            img.src = src;
-            cap.textContent = caption;
-            // Ensure lightbox is flex for visibility and transition
+            // Set initial content
+            img.src = filteredImages[currentImageIndex].src;
+            
+            // Show lightbox
             lightbox.classList.remove('hidden', 'opacity-0');
             lightbox.classList.add('flex', 'opacity-100');
+            
+            updateNavigationButtons(filteredImages);
         }
 
         function closeLightbox() {
@@ -513,6 +617,39 @@
             setTimeout(() => {
                 lightbox.classList.add('hidden', 'opacity-0');
             }, 300); // Wait for opacity transition
+        }
+
+        /**
+         * Navigates the lightbox to the next or previous image.
+         * @param {number} direction - 1 for next, -1 for previous.
+         */
+        function navigateLightbox(direction) {
+            const filteredImages = getFilteredGallery();
+            const newIndex = currentImageIndex + direction;
+
+            // Check boundaries
+            if (newIndex < 0 || newIndex >= filteredImages.length) {
+                return;
+            }
+
+            const img = document.getElementById('lightbox-image');
+            
+            // 1. Smooth Fade Out: set image opacity to 0
+            img.style.opacity = '0';
+            
+            // Use setTimeout to allow fade out transition before changing content
+            setTimeout(() => {
+                currentImageIndex = newIndex;
+
+                // 2. Update content
+                img.src = filteredImages[currentImageIndex].src;
+
+                // 3. Smooth Fade In: set image opacity back to 1
+                img.style.opacity = '1';
+
+                // 4. Update button states
+                updateNavigationButtons(filteredImages);
+            }, 300); // Match this delay to the CSS transition duration
         }
 
         // --- Gallery Tab Functions ---
@@ -581,6 +718,20 @@
             // 3. Initialize Animations for elements with .animate-fade-in
             const animatedElements = document.querySelectorAll('.animate-fade-in');
             animatedElements.forEach(el => observer.observe(el));
+
+            // 4. Keyboard Navigation for Lightbox (Optional, but good UX)
+            document.addEventListener('keydown', (e) => {
+                const lightbox = document.getElementById('lightbox');
+                if (lightbox.classList.contains('flex')) {
+                    if (e.key === 'ArrowRight') {
+                        navigateLightbox(1);
+                    } else if (e.key === 'ArrowLeft') {
+                        navigateLightbox(-1);
+                    } else if (e.key === 'Escape') {
+                        closeLightbox();
+                    }
+                }
+            });
         });
     </script>
 </body>

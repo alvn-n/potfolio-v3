@@ -264,13 +264,22 @@
                 <!-- Tab Content Containers -->
                 <div id="gallery-content">
                     <!-- 
-                        Tab 1: Portraits (Contains 3 images: yuna-waterfall.jpg, potrait-2.jpg, potrait-3.jpg)
+                        Tab 1: Portraits (Contains 5 images: potrait-1.jpg, yuna-waterfall.jpg, potrait-2.jpg, potrait-3.jpg, potrait-4.jpg)
                     -->
                     <div id="tab-portraits" class="tab-content p-4 md:p-8 light-card rounded-xl">
-                        <!-- Grid set to 2 columns on mobile, 3 columns on desktop for balance with 3 items -->
+                        <!-- Grid set to 2 columns on mobile, 3 columns on desktop for balance with 5 items -->
                         <div class="grid grid-cols-2 md:grid-cols-3 gap-6">
                             
-                            <!-- Image 1: yuna-waterfall.jpg -->
+                            <!-- New Image 1: potrait-1.jpg -->
+                            <div class="group relative overflow-hidden rounded-xl shadow-lg cursor-pointer transform transition duration-500 hover:scale-[1.03] hover:shadow-xl" 
+                                 onclick="openLightbox('potrait-1.jpg', 'Studio portrait with high key lighting.')">
+                                <img src="potrait-1.jpg" onerror="this.src='https://placehold.co/800x1200/f3e5d8/70421c?text=Portrait+1'" alt="Portrait Photo 1" class="w-full h-72 md:h-96 object-cover transition duration-300 group-hover:opacity-80">
+                                <div class="absolute inset-0 bg-black bg-opacity-20 flex items-end opacity-0 group-hover:opacity-100 transition duration-300">
+                                    <p class="text-white text-sm p-4 w-full bg-gradient-to-t from-black/50 to-transparent font-medium">View Detail</p>
+                                </div>
+                            </div>
+                            
+                            <!-- Existing Image 1: yuna-waterfall.jpg -->
                             <div class="group relative overflow-hidden rounded-xl shadow-lg cursor-pointer transform transition duration-500 hover:scale-[1.03] hover:shadow-xl" 
                                  onclick="openLightbox('yuna-waterfall.jpg', 'Yuna at the waterfall.')">
                                 <img src="yuna-waterfall.jpg" onerror="this.src='https://placehold.co/1200x800/f3e5d8/70421c?text=Portrait+2'" alt="Yuna Waterfall Photo" class="w-full h-72 md:h-96 object-cover transition duration-300 group-hover:opacity-80">
@@ -279,7 +288,7 @@
                                 </div>
                             </div>
                             
-                            <!-- Image 2: potrait-2.jpg -->
+                            <!-- Existing Image 2: potrait-2.jpg -->
                             <div class="group relative overflow-hidden rounded-xl shadow-lg cursor-pointer transform transition duration-500 hover:scale-[1.03] hover:shadow-xl" 
                                  onclick="openLightbox('potrait-2.jpg', 'Deep focus in the shadows.')">
                                 <img src="potrait-2.jpg" onerror="this.src='https://placehold.co/800x1200/f3e5d8/70421c?text=Portrait+3'" alt="Portrait Photo 2" class="w-full h-72 md:h-96 object-cover transition duration-300 group-hover:opacity-80">
@@ -288,7 +297,7 @@
                                 </div>
                             </div>
                             
-                            <!-- Image 3: potrait-3.jpg -->
+                            <!-- Existing Image 3: potrait-3.jpg -->
                             <div class="group relative overflow-hidden rounded-xl shadow-lg cursor-pointer transform transition duration-500 hover:scale-[1.03] hover:shadow-xl" 
                                  onclick="openLightbox('potrait-3.jpg', 'Dramatic side-lighting.')">
                                 <img src="potrait-3.jpg" onerror="this.src='https://placehold.co/800x1200/f3e5d8/70421c?text=Portrait+4'" alt="Portrait Photo 3" class="w-full h-72 md:h-96 object-cover transition duration-300 group-hover:opacity-80">
@@ -297,7 +306,14 @@
                                 </div>
                             </div>
                             
-                            <!-- potrait-5.jpg is confirmed to be removed. -->
+                            <!-- New Image 2: potrait-4.jpg -->
+                            <div class="group relative overflow-hidden rounded-xl shadow-lg cursor-pointer transform transition duration-500 hover:scale-[1.03] hover:shadow-xl" 
+                                 onclick="openLightbox('potrait-4.jpg', 'Outdoor portrait with bokeh background.')">
+                                <img src="potrait-4.jpg" onerror="this.src='https://placehold.co/800x1200/f3e5d8/70421c?text=Portrait+5'" alt="Portrait Photo 4" class="w-full h-72 md:h-96 object-cover transition duration-300 group-hover:opacity-80">
+                                <div class="absolute inset-0 bg-black bg-opacity-20 flex items-end opacity-0 group-hover:opacity-100 transition duration-300">
+                                    <p class="text-white text-sm p-4 w-full bg-gradient-to-t from-black/50 to-transparent font-medium">View Detail</p>
+                                </div>
+                            </div>
                             
                         </div>
                     </div>

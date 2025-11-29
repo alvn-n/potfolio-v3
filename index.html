@@ -301,8 +301,7 @@
                                      class="w-full h-full object-cover">
                             </div>
 
-                            <!-- IMAGE 5: potrait-4.jpg (NOW 2x2 BLOCK) -->
-                            <!-- We set col-span-2 and aspect-square (1:1 aspect ratio). Since a standard cell is 1:1, a 2-column wide item with a 1:1 aspect ratio will occupy 2 columns x 2 rows (4 cells). -->
+                            <!-- IMAGE 5: potrait-4.jpg (2x2 BLOCK) -->
                             <div class="col-span-2 md:row-span-2 relative overflow-hidden rounded-xl shadow-lg hover:shadow-2xl transition duration-300 transform hover:scale-[1.01] cursor-pointer aspect-square" 
                                  onclick="openLightbox('potrait-4.jpg', 'STRETCHED VIEW 2:2 Placeholder')">
                                 <img src="potrait-4.jpg" 
@@ -311,7 +310,7 @@
                                      class="w-full h-full object-cover">
                             </div>
 
-                            <!-- Image 6: potrait-15.jpg (1 col) - Note: This will now appear in the 3rd row, 1st column, as the 2x2 block pushes content down -->
+                            <!-- Image 6: potrait-15.jpg (1 col) - Note: This appears in the 3rd row, 1st column -->
                             <div class="relative overflow-hidden rounded-xl shadow-lg hover:shadow-2xl transition duration-300 transform hover:scale-[1.03] cursor-pointer aspect-square" onclick="openLightbox('potrait-15.jpg', 'Environmental Portrait: Woman and horse in misty mountains')">
                                 <img src="potrait-15.jpg" 
                                      onerror="this.src='https://placehold.co/600x600/f3e5d8/70421c?text=Image+of+Horse+and+Girl';" 
@@ -322,11 +321,38 @@
                         </div>
                     </div>
                     
-                    <!-- LANDSCAPE TAB CONTENT -->
+                    <!-- LANDSCAPE TAB CONTENT (NEW IMAGES ADDED) -->
                     <div id="tab-landscape" class="tab-content hidden">
                         <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-3 gap-6">
                             
-                            <!-- Image 1: potrait-10.jpg -->
+                            <!-- NEW Image 1: potrait-12.jpg (Street Landscape) -->
+                            <div class="relative overflow-hidden rounded-xl shadow-lg hover:shadow-2xl transition duration-300 transform hover:scale-[1.03] cursor-pointer aspect-square" 
+                                onclick="openLightbox('potrait-12.jpg', 'Urban Landscape: Streets and buildings')">
+                                <img src="potrait-12.jpg" 
+                                    onerror="this.src='https://placehold.co/600x600/f3e5d8/70421c?text=Street+Scene';" 
+                                    alt="Street Scene" 
+                                    class="w-full h-full object-cover">
+                            </div>
+
+                            <!-- NEW Image 2: potrait-14.jpg (Cityscape/Hill View) -->
+                            <div class="relative overflow-hidden rounded-xl shadow-lg hover:shadow-2xl transition duration-300 transform hover:scale-[1.03] cursor-pointer aspect-square" 
+                                 onclick="openLightbox('potrait-14.jpg', 'High View Landscape: Lake and Cityscape')">
+                                <img src="potrait-14.jpg" 
+                                     onerror="this.src='https://placehold.co/600x600/f3e5d8/70421c?text=High+View+Cityscape';" 
+                                     alt="High View Cityscape" 
+                                     class="w-full h-full object-cover">
+                            </div>
+
+                            <!-- NEW Image 3: potrait-13.jpg (Shaded Path) -->
+                            <div class="relative overflow-hidden rounded-xl shadow-lg hover:shadow-2xl transition duration-300 transform hover:scale-[1.03] cursor-pointer aspect-square" 
+                                 onclick="openLightbox('potrait-13.jpg', 'Tropical Landscape: Shaded path through trees')">
+                                <img src="potrait-13.jpg" 
+                                     onerror="this.src='https://placehold.co/600x600/f3e5d8/70421c?text=Shaded+Tropical+Path';" 
+                                     alt="Shaded Tropical Path" 
+                                     class="w-full h-full object-cover">
+                            </div>
+                            
+                            <!-- Existing Image 1: potrait-10.jpg -->
                             <div class="relative overflow-hidden rounded-xl shadow-lg hover:shadow-2xl transition duration-300 transform hover:scale-[1.03] cursor-pointer aspect-square" 
                                 onclick="openLightbox('potrait-10.jpg', 'Coastal Scene 1: Capturing the sunset moment.')">
                                 <img src="potrait-10.jpg" 
@@ -335,7 +361,7 @@
                                     class="w-full h-full object-cover">
                             </div>
                             
-                            <!-- Image 2: potrait-9.jpg -->
+                            <!-- Existing Image 2: potrait-9.jpg -->
                             <div class="relative overflow-hidden rounded-xl shadow-lg hover:shadow-2xl transition duration-300 transform hover:scale-[1.03] cursor-pointer aspect-square" 
                                  onclick="openLightbox('potrait-9.jpg', 'Coastal Scene 2: Wide view of the horizon.')">
                                 <img src="potrait-9.jpg" 
@@ -344,7 +370,7 @@
                                      class="w-full h-full object-cover">
                             </div>
 
-                            <!-- Image 3: potrait-8.jpg -->
+                            <!-- Existing Image 3: potrait-8.jpg -->
                             <div class="relative overflow-hidden rounded-xl shadow-lg hover:shadow-2xl transition duration-300 transform hover:scale-[1.03] cursor-pointer aspect-square" 
                                  onclick="openLightbox('potrait-8.jpg', 'Coastal Scene 3: High contrast island life.')">
                                 <img src="potrait-8.jpg" 
@@ -353,7 +379,7 @@
                                      class="w-full h-full object-cover">
                             </div>
 
-                            <!-- Image 4: potrait-6.jpg -->
+                            <!-- Existing Image 4: potrait-6.jpg -->
                             <div class="relative overflow-hidden rounded-xl shadow-lg hover:shadow-2xl transition duration-300 transform hover:scale-[1.03] cursor-pointer aspect-square" 
                                  onclick="openLightbox('potrait-6.jpg', 'Coastal Scene 4: Beach landscape with motion.')">
                                 <img src="potrait-6.jpg" 
@@ -362,7 +388,7 @@
                                      class="w-full h-full object-cover">
                             </div>
                             
-                            <!-- Image 5: potrait-5.jpg -->
+                            <!-- Existing Image 5: potrait-5.jpg -->
                             <div class="relative overflow-hidden rounded-xl shadow-lg hover:shadow-2xl transition duration-300 transform hover:scale-[1.03] cursor-pointer aspect-square" 
                                  onclick="openLightbox('potrait-5.jpg', 'Coastal Scene 5: Abstract reflection.')">
                                 <img src="potrait-5.jpg" 
@@ -371,7 +397,7 @@
                                      class="w-full h-full object-cover">
                             </div>
                             
-                            <!-- Image 6: potrait-11.jpg -->
+                            <!-- Existing Image 6: potrait-11.jpg -->
                             <div class="relative overflow-hidden rounded-xl shadow-lg hover:shadow-2xl transition duration-300 transform hover:scale-[1.03] cursor-pointer aspect-square" 
                                  onclick="openLightbox('potrait-11.jpg', 'Coastal Scene 6: Dramatic cloud coverage.')">
                                 <img src="potrait-11.jpg" 

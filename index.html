@@ -301,16 +301,17 @@
                                      class="w-full h-full object-cover">
                             </div>
 
-                            <!-- Image 5: potrait-4.jpg (RESTORED Wide Placeholder) - Spans 2 columns -->
-                            <div class="col-span-2 ig:col-span-2 relative overflow-hidden rounded-xl shadow-lg hover:shadow-2xl transition duration-300 transform hover:scale-[1.01] cursor-pointer aspect-[2/1]" 
-                                 onclick="openLightbox('potrait-4.jpg', 'STRETCHED VIEW 2:1 Placeholder')">
+                            <!-- IMAGE 5: potrait-4.jpg (NOW 2x2 BLOCK) -->
+                            <!-- We set col-span-2 and aspect-square (1:1 aspect ratio). Since a standard cell is 1:1, a 2-column wide item with a 1:1 aspect ratio will occupy 2 columns x 2 rows (4 cells). -->
+                            <div class="col-span-2 md:row-span-2 relative overflow-hidden rounded-xl shadow-lg hover:shadow-2xl transition duration-300 transform hover:scale-[1.01] cursor-pointer aspect-square" 
+                                 onclick="openLightbox('potrait-4.jpg', 'STRETCHED VIEW 2:2 Placeholder')">
                                 <img src="potrait-4.jpg" 
-                                     onerror="this.src='https://placehold.co/1200x600/f3e5d8/70421c?text=Portrait+4+-+STRETCHED+VIEW+2:1';" 
-                                     alt="Portrait 4 - Wide Placeholder" 
+                                     onerror="this.src='https://placehold.co/1200x1200/f3e5d8/70421c?text=Portrait+4+-+2X2+VIEW';" 
+                                     alt="Portrait 4 - 2x2 Block" 
                                      class="w-full h-full object-cover">
                             </div>
 
-                            <!-- Image 6: potrait-15.jpg (NEW standard 1-column image) -->
+                            <!-- Image 6: potrait-15.jpg (1 col) - Note: This will now appear in the 3rd row, 1st column, as the 2x2 block pushes content down -->
                             <div class="relative overflow-hidden rounded-xl shadow-lg hover:shadow-2xl transition duration-300 transform hover:scale-[1.03] cursor-pointer aspect-square" onclick="openLightbox('potrait-15.jpg', 'Environmental Portrait: Woman and horse in misty mountains')">
                                 <img src="potrait-15.jpg" 
                                      onerror="this.src='https://placehold.co/600x600/f3e5d8/70421c?text=Image+of+Horse+and+Girl';" 
@@ -548,4 +549,3 @@
     </script>
 </body>
 </html>
-

@@ -175,42 +175,53 @@
 
     <!-- Main Content -->
     <main>
-        <!-- Hero Section (Introduction - Background matches the new body color) -->
-        <section id="hero" class="py-20 md:py-36 border-b border-gray-200">
-            <!-- Layout size changed from max-w-7xl to max-w-full -->
-            <div class="max-w-full mx-auto px-4 sm:px-6 lg:px-8 xl:px-12 flex flex-col md:flex-row items-center justify-between text-center md:text-left">
-                <!-- Text Content -->
-                <div class="md:w-1/2 space-y-4 order-2 md:order-1 animate-fade-in" style="animation-delay: 0.2s;">
-                    <p class="text-lg primary-accent font-semibold uppercase tracking-widest">Photography Portfolio</p>
-                    <h1 class="text-6xl md:text-8xl font-black text-gray-900 leading-tight tracking-tighter">
-                        Ahmed Alvin
-                    </h1>
-                    <h2 class="text-3xl md:text-4xl text-gray-500 font-light">
-                        Aspiring Photographer
-                    </h2>
-                    <p class="text-xl text-gray-600 max-w-xl mx-auto md:mx-0 pt-4">
-                        <span class="font-semibold text-gray-700">Location:</span> Hulhumalé, Maldives
-                    </p>
-                    <div class="flex justify-center md:justify-start pt-6 space-x-4">
-                        <a href="#gallery" class="primary-btn font-semibold px-8 py-3 rounded-xl transition duration-300 shadow-lg text-lg">
-                            View Gallery
-                        </a>
-                        <a href="#contact" class="px-8 py-3 rounded-xl transition duration-300 text-[#70421c] border-2 border-[#70421c] hover:bg-[#70421c] hover:text-white font-semibold text-lg">
-                            Contact Me
-                        </a>
-                    </div>
-                </div>
+        <!-- Hero Section -->
+<section id="hero" class="py-20 md:py-32 border-b border-gray-200">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col md:flex-row items-center justify-between">
 
-                <!-- Avatar/Image: 1000038351.jpg -->
-                <div class="md:w-1/2 flex justify-center order-1 md:order-2 mb-10 md:mb-0 animate-scale-in">
-                    <div class="w-64 h-64 md:w-80 md:h-80 bg-gray-200 rounded-full flex items-center justify-center avatar-frame overflow-hidden">
-                        <img src="1000038351.jpg" 
-                             onerror="this.src='https://placehold.co/800x800/e5e7eb/70421c?text=Image+Missing';" 
-                             alt="Ahmed Alvin Profile Photo" class="w-full h-full object-cover">
-                    </div>
+        <!-- LEFT: Profile + Text -->
+        <div class="flex items-center gap-8 md:w-1/2 animate-fade-in" style="animation-delay: 0.2s;">
+
+            <!-- Profile Picture (Brown Circle) -->
+            <div class="w-28 h-28 rounded-full bg-[#70421c] avatar-frame flex items-center justify-center overflow-hidden shadow-lg">
+                <img src="potrait-x.jpg" alt="Profile Picture" class="w-full h-full object-cover rounded-full">
+            </div>
+
+            <!-- Text -->
+            <div>
+                <p class="text-lg primary-accent font-semibold uppercase tracking-widest mb-1">
+                    Photography Portfolio
+                </p>
+
+                <h1 class="text-6xl md:text-7xl font-black text-gray-900 leading-tight tracking-tighter">
+                    Ahmed Alvin
+                </h1>
+
+                <h2 class="text-3xl md:text-4xl text-gray-500 font-light mt-1">
+                    Aspiring Photographer
+                </h2>
+
+                <p class="text-xl text-gray-600 mt-4">
+                    <span class="font-semibold text-gray-700">Location:</span> Hulhumalé, Maldives
+                </p>
+
+                <div class="flex items-center gap-4 mt-6">
+                    <a href="#gallery" class="primary-btn font-semibold px-8 py-3 rounded-xl transition duration-300 shadow-lg text-lg">
+                        View Gallery
+                    </a>
+                    <a href="#contact" class="px-8 py-3 rounded-xl transition duration-300 text-[#70421c] border-2 border-[#70421c] hover:bg-[#70421c] hover:text-white font-semibold text-lg">
+                        Contact Me
+                    </a>
                 </div>
             </div>
-        </section>
+
+        </div>
+
+        <!-- RIGHT: Empty space for clean minimal layout -->
+        <div class="md:w-1/2 mt-12 md:mt-0"></div>
+
+    </div>
+</section>
 
         <!-- About Section (Uses pure white card for separation) -->
         <section id="about" class="py-16 md:py-24 max-w-full mx-auto px-4 sm:px-6 lg:px-8 animate-fade-in">
@@ -730,4 +741,5 @@
     </script>
 </body>
 </html>
+
 

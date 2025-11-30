@@ -206,6 +206,13 @@
         </a>
       </div>
     </div>
+      
+      <!-- ADD ABOUT ME HERE -->
+<div class="mt-8 text-center max-w-3xl mx-auto animate-fade-in" style="animation-delay: 0.5s;">
+    <p class="text-lg md:text-xl text-gray-700">
+        Hello! I'm <span class="font-semibold text-[#70421c]">Ahmed Alvin</span>, an aspiring photographer from Hulhumalé, Maldives. I love capturing moments that tell a story—whether it's a vibrant city scene, a serene landscape, or a heartfelt portrait.
+    </p>
+</div>
 
     <!-- RIGHT SIDE: BIGGER PROFILE PIC -->
     <div class="md:w-1/2 flex justify-center md:justify-end mt-12 md:mt-0">
@@ -398,7 +405,23 @@
                 </div>
 
             </div>
-        </section>
+            </section> <!-- End of Gallery Section -->
+
+        <!-- Certificates Button -->
+        <div class="text-center mt-12">
+        <button id="view-certificate-btn" class="primary-btn px-8 py-3 rounded-xl font-semibold text-lg shadow-lg transition duration-300">
+                View Certificate
+            </button>
+
+            <!-- PDF Container (hidden by default) -->
+            <div id="certificate-container" class="mt-8 hidden">
+                <iframe src="20251130_144403.pdf" class="w-full h-[600px] md:h-[800px] border rounded-lg shadow-lg" type="application/pdf"></iframe>
+            </div>
+        </div>
+
+        <!-- Contact Section (UPDATED to match the user's requested card style) -->
+        <section id="contact" class="py-16 md:py-24 border-t border-gray-200 animate-fade-in" style="animation-delay: 1.4s;">
+
 
 
         <!-- Contact Section (UPDATED to match the user's requested card style) -->
@@ -477,199 +500,153 @@
     </div>
 
 
-    <!-- JavaScript for Interactivity -->
-    <script>
-        // Global state for lightbox navigation
-        let currentImageIndex = -1;
-        let activeGalleryTab = 'portraits'; // 'portraits' or 'landscape'
+  <!-- JavaScript for Interactivity -->
+<script>
+    // Global state for lightbox navigation
+    let currentImageIndex = -1;
+    let activeGalleryTab = 'portraits'; // 'portraits' or 'landscape'
 
-        // Centralized Image Data (Source and Tab Category only - Caption removed)
-        const galleryData = [
-            // --- PORTRAITS TAB ---
-            { src: 'potrait-0.jpg', tab: 'portraits' },
-            { src: 'potrait-1.jpg', tab: 'portraits' },
-            { src: 'potrait-2.jpg', tab: 'portraits' },
-            { src: 'potrait-3.jpg', tab: 'portraits' },
-            { src: 'potrait-4.jpg', tab: 'portraits' },
-            { src: 'potrait-15.jpg', tab: 'portraits' },
-            // --- LANDSCAPE TAB ---
-            { src: 'potrait-12.jpg', tab: 'landscape' },
-            { src: 'potrait-14.jpg', tab: 'landscape' },
-            { src: 'potrait-13.jpg', tab: 'landscape' },
-            { src: 'potrait-10.jpg', tab: 'landscape' },
-            { src: 'potrait-9.jpg', tab: 'landscape' },
-            { src: 'potrait-8.jpg', tab: 'landscape' },
-            { src: 'potrait-6.jpg', tab: 'landscape' },
-            { src: 'potrait-5.jpg', tab: 'landscape' },
-            { src: 'potrait-11.jpg', tab: 'landscape' },
-            { src: 'potrait-7.jpg', tab: 'landscape' }
-        ];
+    // Centralized Image Data (Source and Tab Category only - Caption removed)
+    const galleryData = [
+        // --- PORTRAITS TAB ---
+        { src: 'potrait-0.jpg', tab: 'portraits' },
+        { src: 'potrait-1.jpg', tab: 'portraits' },
+        { src: 'potrait-2.jpg', tab: 'portraits' },
+        { src: 'potrait-3.jpg', tab: 'portraits' },
+        { src: 'potrait-4.jpg', tab: 'portraits' },
+        { src: 'potrait-15.jpg', tab: 'portraits' },
+        // --- LANDSCAPE TAB ---
+        { src: 'potrait-12.jpg', tab: 'landscape' },
+        { src: 'potrait-14.jpg', tab: 'landscape' },
+        { src: 'potrait-13.jpg', tab: 'landscape' },
+        { src: 'potrait-10.jpg', tab: 'landscape' },
+        { src: 'potrait-9.jpg', tab: 'landscape' },
+        { src: 'potrait-8.jpg', tab: 'landscape' },
+        { src: 'potrait-6.jpg', tab: 'landscape' },
+        { src: 'potrait-5.jpg', tab: 'landscape' },
+        { src: 'potrait-11.jpg', tab: 'landscape' },
+        { src: 'potrait-7.jpg', tab: 'landscape' }
+    ];
 
-        // --- Lightbox Functions ---
-        function getFilteredGallery() {
-            return galleryData.filter(item => item.tab === activeGalleryTab);
-        }
+    // --- Lightbox Functions ---
+    function getFilteredGallery() {
+        return galleryData.filter(item => item.tab === activeGalleryTab);
+    }
 
-        function updateNavigationButtons(filteredImages) {
-            const prevBtn = document.getElementById('prev-btn');
-            const nextBtn = document.getElementById('next-btn');
-            
-            // Disable logic: Prev button disabled at index 0, Next button disabled at last index
-            prevBtn.disabled = (currentImageIndex <= 0);
-            nextBtn.disabled = (currentImageIndex >= filteredImages.length - 1);
-        }
-
-        function openLightbox(src) {
-            // Find the current tab
-            activeGalleryTab = document.querySelector('.tab-button.active-tab').getAttribute('data-target').replace('tab-', '');
-            
-            const filteredImages = getFilteredGallery();
-            
-            // Find the index of the clicked image in the filtered list
-            const clickedImageIndex = filteredImages.findIndex(item => item.src === src);
-            if (clickedImageIndex === -1) return; // Should not happen
-
-            currentImageIndex = clickedImageIndex;
-
-            const lightbox = document.getElementById('lightbox');
-            const img = document.getElementById('lightbox-image');
-
-            // Set initial content
-            img.src = filteredImages[currentImageIndex].src;
-            
-            // Show lightbox
-            lightbox.classList.remove('hidden', 'opacity-0');
-            lightbox.classList.add('flex', 'opacity-100');
-            
-            updateNavigationButtons(filteredImages);
-        }
-
-        function closeLightbox() {
-            const lightbox = document.getElementById('lightbox');
-            lightbox.classList.remove('opacity-100', 'flex');
-            // Add transition delay before hiding completely
-            setTimeout(() => {
-                lightbox.classList.add('hidden', 'opacity-0');
-            }, 300); // Wait for opacity transition
-        }
-
-        /**
-         * Navigates the lightbox to the next or previous image.
-         * @param {number} direction - 1 for next, -1 for previous.
-         */
-        function navigateLightbox(direction) {
-            const filteredImages = getFilteredGallery();
-            const newIndex = currentImageIndex + direction;
-
-            // Check boundaries
-            if (newIndex < 0 || newIndex >= filteredImages.length) {
-                return;
-            }
-
-            const img = document.getElementById('lightbox-image');
-            
-            // 1. Smooth Fade Out: set image opacity to 0
-            img.style.opacity = '0';
-            
-            // Use setTimeout to allow fade out transition before changing content
-            setTimeout(() => {
-                currentImageIndex = newIndex;
-
-                // 2. Update content
-                img.src = filteredImages[currentImageIndex].src;
-
-                // 3. Smooth Fade In: set image opacity back to 1
-                img.style.opacity = '1';
-
-                // 4. Update button states
-                updateNavigationButtons(filteredImages);
-            }, 300); // Match this delay to the CSS transition duration
-        }
-
-        // --- Gallery Tab Functions ---
-        function switchTab(targetId) {
-            // Remove active class from all buttons and hide all content
-            document.querySelectorAll('.tab-button').forEach(btn => {
-                btn.classList.remove('active-tab');
-            });
-            document.querySelectorAll('.tab-content').forEach(content => {
-                content.classList.add('hidden');
-            });
-
-            // Add active class to the selected button
-            const activeButton = document.querySelector(`.tab-button[data-target="${targetId}"]`);
-            if (activeButton) {
-                activeButton.classList.add('active-tab');
-            }
-
-            // Show the target content
-            const targetContent = document.getElementById(targetId);
-            if (targetContent) {
-                targetContent.classList.remove('hidden');
-            }
-        }
-
-        // --- Animation Observer ---
-        // Sets up an Intersection Observer to trigger animations when elements enter the viewport
-        const observer = new IntersectionObserver((entries, observer) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    // Trigger the animation by removing the initial 'opacity: 0' state 
-                    // (The animation is already defined with 'forwards' and the style attribute holds the delay)
-                    entry.target.style.opacity = '1';
-                    entry.target.style.transform = 'translateY(0)';
-                    observer.unobserve(entry.target);
-                }
-            });
-        }, {
-            root: null, // viewport
-            rootMargin: '0px',
-            threshold: 0.1 // Trigger when 10% of element is visible
-        });
+    function updateNavigationButtons(filteredImages) {
+        const prevBtn = document.getElementById('prev-btn');
+        const nextBtn = document.getElementById('next-btn');
         
-        // --- Event Listeners and Initial Setup ---
-        document.addEventListener('DOMContentLoaded', () => {
-            
-            // 1. Mobile Menu Toggle
-            const menuButton = document.getElementById('menu-button');
-            const mobileMenu = document.getElementById('mobile-menu');
+        prevBtn.disabled = (currentImageIndex <= 0);
+        nextBtn.disabled = (currentImageIndex >= filteredImages.length - 1);
+    }
 
-            if (menuButton && mobileMenu) {
-                menuButton.addEventListener('click', () => {
-                    mobileMenu.classList.toggle('hidden');
-                });
+    function openLightbox(src) {
+        activeGalleryTab = document.querySelector('.tab-button.active-tab').getAttribute('data-target').replace('tab-', '');
+        const filteredImages = getFilteredGallery();
+        const clickedImageIndex = filteredImages.findIndex(item => item.src === src);
+        if (clickedImageIndex === -1) return;
+
+        currentImageIndex = clickedImageIndex;
+        const lightbox = document.getElementById('lightbox');
+        const img = document.getElementById('lightbox-image');
+
+        img.src = filteredImages[currentImageIndex].src;
+        lightbox.classList.remove('hidden', 'opacity-0');
+        lightbox.classList.add('flex', 'opacity-100');
+        updateNavigationButtons(filteredImages);
+    }
+
+    function closeLightbox() {
+        const lightbox = document.getElementById('lightbox');
+        lightbox.classList.remove('opacity-100', 'flex');
+        setTimeout(() => {
+            lightbox.classList.add('hidden', 'opacity-0');
+        }, 300);
+    }
+
+    function navigateLightbox(direction) {
+        const filteredImages = getFilteredGallery();
+        const newIndex = currentImageIndex + direction;
+        if (newIndex < 0 || newIndex >= filteredImages.length) return;
+
+        const img = document.getElementById('lightbox-image');
+        img.style.opacity = '0';
+
+        setTimeout(() => {
+            currentImageIndex = newIndex;
+            img.src = filteredImages[currentImageIndex].src;
+            img.style.opacity = '1';
+            updateNavigationButtons(filteredImages);
+        }, 300);
+    }
+
+    function switchTab(targetId) {
+        document.querySelectorAll('.tab-button').forEach(btn => btn.classList.remove('active-tab'));
+        document.querySelectorAll('.tab-content').forEach(content => content.classList.add('hidden'));
+
+        const activeButton = document.querySelector(`.tab-button[data-target="${targetId}"]`);
+        if (activeButton) activeButton.classList.add('active-tab');
+
+        const targetContent = document.getElementById(targetId);
+        if (targetContent) targetContent.classList.remove('hidden');
+    }
+
+    const observer = new IntersectionObserver((entries, observer) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.style.opacity = '1';
+                entry.target.style.transform = 'translateY(0)';
+                observer.unobserve(entry.target);
             }
+        });
+    }, { root: null, rootMargin: '0px', threshold: 0.1 });
 
-            // 2. Tab Switching Logic
-            const tabButtons = document.querySelectorAll('.tab-button');
-            tabButtons.forEach(button => {
-                button.addEventListener('click', () => {
-                    const target = button.getAttribute('data-target');
-                    switchTab(target);
-                });
+    document.addEventListener('DOMContentLoaded', () => {
+        const menuButton = document.getElementById('menu-button');
+        const mobileMenu = document.getElementById('mobile-menu');
+
+        if (menuButton && mobileMenu) {
+            menuButton.addEventListener('click', () => {
+                mobileMenu.classList.toggle('hidden');
             });
+        }
 
-            // 3. Initialize Animations for elements with .animate-fade-in
-            const animatedElements = document.querySelectorAll('.animate-fade-in');
-            animatedElements.forEach(el => observer.observe(el));
-
-            // 4. Keyboard Navigation for Lightbox (Optional, but good UX)
-            document.addEventListener('keydown', (e) => {
-                const lightbox = document.getElementById('lightbox');
-                if (lightbox.classList.contains('flex')) {
-                    if (e.key === 'ArrowRight') {
-                        navigateLightbox(1);
-                    } else if (e.key === 'ArrowLeft') {
-                        navigateLightbox(-1);
-                    } else if (e.key === 'Escape') {
-                        closeLightbox();
-                    }
-                }
+        const tabButtons = document.querySelectorAll('.tab-button');
+        tabButtons.forEach(button => {
+            button.addEventListener('click', () => {
+                const target = button.getAttribute('data-target');
+                switchTab(target);
             });
         });
-    </script>
+
+        const animatedElements = document.querySelectorAll('.animate-fade-in');
+        animatedElements.forEach(el => observer.observe(el));
+
+        document.addEventListener('keydown', (e) => {
+            const lightbox = document.getElementById('lightbox');
+            if (lightbox.classList.contains('flex')) {
+                if (e.key === 'ArrowRight') navigateLightbox(1);
+                else if (e.key === 'ArrowLeft') navigateLightbox(-1);
+                else if (e.key === 'Escape') closeLightbox();
+            }
+        });
+
+        // --- Certificates Button Toggle ---
+        const viewCertBtn = document.getElementById('view-certificate-btn');
+        const certContainer = document.getElementById('certificate-container');
+
+        if (viewCertBtn && certContainer) {
+            viewCertBtn.addEventListener('click', () => {
+                certContainer.classList.toggle('hidden');
+                viewCertBtn.textContent = certContainer.classList.contains('hidden') ? 'View Certificate' : 'Hide Certificate';
+            });
+        }
+    });
+</script>
 </body>
 </html>
+
 
 
 
